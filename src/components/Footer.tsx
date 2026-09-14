@@ -10,11 +10,11 @@ export function Footer() {
         <div className="md:col-span-4">
           <div className="mb-5 flex items-center gap-3">
             <Image
-              src="/brand/logo-natiopark.png"
+              src="/brand/natiopark_logo_blanc_transparent-AVL769rD7WsrM2Gq.png"
               alt=""
               width={40}
               height={40}
-              className="h-10 w-10 invert"
+              className="h-10 w-10"
             />
             <div>
               <div className="text-sm font-semibold tracking-[0.2em] uppercase">

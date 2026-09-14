@@ -34,11 +34,11 @@ export function Header() {
       <div className="section-pad mx-auto flex max-w-7xl items-center justify-between gap-6">
         <Link href="/" className="group flex items-center gap-3" aria-label="NatioPark Accueil">
           <Image
-            src="/brand/logo-natiopark.png"
+            src="/brand/natiopark_logo_blanc_transparent-AVL769rD7WsrM2Gq.png"
             alt="NatioPark Automobiles"
             width={44}
             height={44}
-            className="h-10 w-10 invert transition-transform duration-500 group-hover:scale-105 sm:h-11 sm:w-11"
+            className="h-10 w-10 transition-transform duration-500 group-hover:scale-105 sm:h-11 sm:w-11"
             priority
           />
           <div className="hidden sm:block">
