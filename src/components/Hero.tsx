@@ -57,8 +57,7 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.2 }}
           className="mt-6 max-w-xl text-base leading-relaxed text-silver/90 md:text-lg"
         >
-          {site.tagline}. Une maison dédiée aux véhicules singuliers, au rachat
-          exigeant et à une conciergerie totale.
+          {site.tagline}
         </motion.p>
 
         <motion.div
