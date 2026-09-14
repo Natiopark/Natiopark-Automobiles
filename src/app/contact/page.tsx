@@ -60,7 +60,7 @@ export default function ContactPage() {
                     </a>
                   </li>
                   <li>
-                    <span className="block text-xs tracking-widest text-muted uppercase">Téléphones</span>
+                    <span className="block text-xs tracking-widest text-muted uppercase">Téléphone</span>
                     <div className="mt-1 flex flex-col gap-1">
                       {site.phones.map((p) => (
                         <a key={p.href} className="hover:text-platinum" href={p.href}>

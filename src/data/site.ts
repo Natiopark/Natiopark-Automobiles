@@ -4,7 +4,6 @@ export const site = {
   email: "contact@natiopark.fr",
   phones: [
     { label: "04.88.22.30.23", href: "tel:+33488223023" },
-    { label: "06.22.52.92.52", href: "tel:+33622529252" },
   ],
   reception:
     "Réception uniquement sur rendez-vous — sécurité, confidentialité et qualité de service.",

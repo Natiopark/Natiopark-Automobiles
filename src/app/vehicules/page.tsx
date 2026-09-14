@@ -18,13 +18,8 @@ export default function VehiculesPage() {
           <Reveal>
             <p className="eyebrow mb-4">Sélection</p>
             <h1 className="display max-w-4xl text-[clamp(2.5rem,6vw,5rem)] text-platinum">
-              Véhicules d&apos;exception
+              Une sélection de nos véhicules
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted">
-              Une collection vivante d&apos;automobiles singulières, photographiées
-              pour nos clients. Chaque projet est unique — contactez-nous pour
-              orchestrer le vôtre.
-            </p>
           </Reveal>
         </div>
       </section>

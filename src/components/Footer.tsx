@@ -28,10 +28,6 @@ export function Footer() {
           <p className="display text-2xl text-platinum/90 md:text-3xl">
             {site.tagline}
           </p>
-          <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted">
-            Sélection exigeante, rachat discret et conciergerie 360° — Marseille
-            & Aix-en-Provence.
-          </p>
         </div>
 
         <div className="md:col-span-3">
