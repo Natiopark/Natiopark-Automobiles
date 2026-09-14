@@ -24,37 +24,27 @@ export function Hero() {
           fill
           priority
           quality={90}
-          className="object-cover object-[center_40%]"
+          className="object-cover object-[center_40%] scale-105"
           sizes="100vw"
         />
       </motion.div>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-background" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-forest/20" />
+
+      {/* Dark luxury stack: photo blur-adjacent overlays, mesh, vignette, aurora, sweep, film grain */}
+      <div className="hero-scrim pointer-events-none absolute inset-0" />
+      <div className="hero-vignette pointer-events-none absolute inset-0" />
+      <div className="hero-aurora pointer-events-none absolute inset-0" />
+      <div className="hero-diagonal pointer-events-none absolute inset-0" />
+      <div className="hero-sweep pointer-events-none absolute inset-0" />
+      <div className="hero-film pointer-events-none absolute inset-0" />
 
       <motion.div
         style={{ opacity }}
         className="section-pad relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end pb-20 pt-32 md:justify-center md:pb-28"
       >
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-6 flex items-center gap-4"
-        >
-          <Image
-            src="/brand/natiopark_logo_blanc_transparent-AVL769rD7WsrM2Gq.png"
-            alt=""
-            width={56}
-            height={56}
-            className="h-12 w-12 sm:h-14 sm:w-14"
-          />
-          <span className="eyebrow">Provence · Marseille & Aix</span>
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 1.1, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
           className="display max-w-4xl text-[clamp(2.75rem,8vw,6.5rem)] text-platinum"
         >
           NatioPark
@@ -64,7 +54,7 @@ export function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.25 }}
+          transition={{ duration: 1, delay: 0.2 }}
           className="mt-6 max-w-xl text-base leading-relaxed text-silver/90 md:text-lg"
         >
           {site.tagline}. Une maison dédiée aux véhicules singuliers, au rachat
@@ -74,7 +64,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.4 }}
+          transition={{ duration: 0.9, delay: 0.35 }}
           className="mt-10 flex flex-wrap gap-4"
         >
           <MagneticButton href="/vehicules">Découvrir les véhicules</MagneticButton>

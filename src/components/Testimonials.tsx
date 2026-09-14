@@ -9,7 +9,7 @@ export function Testimonials({ page = "home" }: Props) {
   const items = site.testimonials.filter((t) => t.page === page);
 
   return (
-    <section className="section-pad py-24 md:py-32">
+    <section className="section-pad section-luxury py-24 md:py-32">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <p className="eyebrow mb-4">Témoignages</p>

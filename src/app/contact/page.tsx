@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
+import { GoogleMapEmbed } from "@/components/GoogleMapEmbed";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -12,8 +13,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <section className="section-pad relative overflow-hidden pt-32 pb-12 md:pt-40 md:pb-16">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(26,58,47,0.28),transparent_50%)]" />
+      <section className="section-pad section-aurora relative overflow-hidden pt-32 pb-12 md:pt-40 md:pb-16">
         <div className="relative mx-auto max-w-7xl">
           <Reveal>
             <p className="eyebrow mb-4">Contact</p>
@@ -27,7 +27,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="section-pad pb-20">
+      <section className="section-pad section-mesh pb-20">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <Reveal>
@@ -62,7 +62,7 @@ export default function ContactPage() {
 
             {site.centers.map((c, i) => (
               <Reveal key={c.id} delay={0.1 + i * 0.08}>
-                <div className="glass overflow-hidden rounded-sm">
+                <div className="glass card-lux overflow-hidden rounded-sm">
                   <div className="p-6 md:p-8">
                     <h3 className="display text-2xl text-platinum">{c.city}</h3>
                     <p className="mt-1 text-sm text-accent">{c.name}</p>
@@ -72,13 +72,11 @@ export default function ContactPage() {
                       {c.postal}
                     </p>
                   </div>
-                  <div className="relative h-48 border-t border-white/5 bg-charcoal-deep">
-                    <iframe
-                      title={`Carte ${c.city}`}
-                      src={c.osmEmbed}
-                      className="h-full w-full grayscale invert-[0.88] contrast-125 opacity-90"
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
+                  <div className="relative min-h-[220px] overflow-hidden border-t border-white/5 bg-charcoal-deep">
+                    <GoogleMapEmbed
+                      src={c.mapsEmbed}
+                      title={`Carte Google — ${c.name}, ${c.city}`}
+                      className="h-[220px]"
                     />
                   </div>
                 </div>

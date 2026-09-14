@@ -66,7 +66,7 @@ export function ParcoursInfographic() {
                     textAnchor="middle"
                     fill="#e8e6e3"
                     fontSize="13"
-                    fontFamily="var(--font-montserrat), sans-serif"
+                    fontFamily="Verdana, Geneva, sans-serif"
                     fontWeight="600"
                   >
                     {String(i + 1).padStart(2, "0")}
@@ -77,7 +77,7 @@ export function ParcoursInfographic() {
                     textAnchor="middle"
                     fill="#e8e6e3"
                     fontSize="16"
-                    fontFamily="var(--font-cormorant), serif"
+                    fontFamily="Verdana, Geneva, sans-serif"
                   >
                     {s.label}
                   </text>
@@ -87,7 +87,7 @@ export function ParcoursInfographic() {
                     textAnchor="middle"
                     fill="#8a8880"
                     fontSize="11"
-                    fontFamily="var(--font-montserrat), sans-serif"
+                    fontFamily="Verdana, Geneva, sans-serif"
                   >
                     {s.desc}
                   </text>

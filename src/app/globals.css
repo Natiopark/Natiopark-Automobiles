@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0b0d;
+  --background: #07080a;
   --foreground: #e8e6e3;
   --charcoal: #2d2e36;
-  --charcoal-deep: #16171c;
+  --charcoal-deep: #121318;
   --silver: #c8c5be;
   --platinum: #e8e6e3;
   --muted: #8a8880;
@@ -15,6 +15,7 @@
   --glass: rgba(255, 255, 255, 0.04);
   --glass-border: rgba(255, 255, 255, 0.08);
   --metallic: linear-gradient(135deg, #8a8880 0%, #e8e6e3 40%, #c8c5be 60%, #6a6860 100%);
+  --font-ui: Verdana, Geneva, sans-serif;
 }
 
 @theme inline {
@@ -29,8 +30,8 @@
   --color-forest-mid: var(--forest-mid);
   --color-forest-light: var(--forest-light);
   --color-accent: var(--accent);
-  --font-sans: var(--font-montserrat);
-  --font-serif: var(--font-cormorant);
+  --font-sans: Verdana, Geneva, sans-serif;
+  --font-serif: Verdana, Geneva, sans-serif;
 }
 
 * {
@@ -39,12 +40,16 @@
 
 html {
   scroll-behavior: smooth;
+  font-family: Verdana, Geneva, sans-serif;
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(26, 58, 47, 0.18), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 100% 50%, rgba(45, 90, 69, 0.08), transparent 45%),
+    var(--background);
   color: var(--foreground);
-  font-family: var(--font-montserrat), system-ui, sans-serif;
+  font-family: Verdana, Geneva, sans-serif;
   overflow-x: hidden;
 }
 
@@ -90,13 +95,14 @@ body {
 }
 
 .display {
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: Verdana, Geneva, sans-serif;
   font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
 }
 
 .eyebrow {
+  font-family: Verdana, Geneva, sans-serif;
   font-size: 0.7rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -112,6 +118,7 @@ body {
   padding: 0.95rem 1.75rem;
   background: linear-gradient(135deg, #e8e6e3 0%, #c8c5be 50%, #a8a59e 100%);
   color: #0a0b0d;
+  font-family: Verdana, Geneva, sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -133,6 +140,7 @@ body {
   padding: 0.95rem 1.75rem;
   border: 1px solid rgba(232, 230, 227, 0.35);
   color: var(--platinum);
+  font-family: Verdana, Geneva, sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -162,9 +170,263 @@ input:focus, textarea:focus, select:focus {
   box-shadow: 0 0 0 3px rgba(45, 90, 69, 0.25);
 }
 
+/* —— Luxury section atmospheres (CSS-only, pick richest per section) —— */
+
+.section-luxury {
+  position: relative;
+  isolation: isolate;
+}
+
+.section-luxury::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 55% at 8% 0%, rgba(26, 58, 47, 0.28), transparent 55%),
+    radial-gradient(ellipse 50% 45% at 92% 85%, rgba(45, 90, 69, 0.16), transparent 50%),
+    radial-gradient(ellipse 40% 30% at 50% 50%, rgba(200, 197, 190, 0.035), transparent 60%);
+}
+
+.section-mesh {
+  position: relative;
+  isolation: isolate;
+}
+
+.section-mesh::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 90% 70% at 20% 10%, rgba(61, 122, 92, 0.14), transparent 50%),
+    radial-gradient(ellipse 70% 60% at 80% 90%, rgba(26, 58, 47, 0.22), transparent 48%),
+    radial-gradient(circle at 50% 50%, rgba(232, 230, 227, 0.02), transparent 55%);
+}
+
+.section-aurora {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.section-aurora::before,
+.section-aurora::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+.section-aurora::before {
+  width: 55%;
+  height: 70%;
+  top: -20%;
+  left: -8%;
+  background: rgba(45, 90, 69, 0.28);
+  animation: aurora-drift 18s ease-in-out infinite;
+}
+
+.section-aurora::after {
+  width: 45%;
+  height: 55%;
+  bottom: -15%;
+  right: -6%;
+  background: rgba(168, 181, 160, 0.1);
+  animation: aurora-drift 22s ease-in-out infinite reverse;
+}
+
+.section-vignette {
+  position: relative;
+}
+
+.section-vignette::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(7, 8, 10, 0.72) 100%);
+}
+
+/* Hero layered treatments */
+.hero-scrim {
+  background:
+    linear-gradient(180deg, rgba(7, 8, 10, 0.62) 0%, rgba(7, 8, 10, 0.28) 38%, rgba(7, 8, 10, 0.55) 72%, #07080a 100%),
+    linear-gradient(90deg, rgba(7, 8, 10, 0.55) 0%, transparent 42%, rgba(26, 58, 47, 0.22) 100%),
+    radial-gradient(ellipse 80% 70% at 50% 80%, rgba(7, 8, 10, 0.55), transparent 60%);
+}
+
+.hero-vignette {
+  background: radial-gradient(ellipse 70% 65% at 50% 45%, transparent 28%, rgba(0, 0, 0, 0.55) 78%, rgba(0, 0, 0, 0.82) 100%);
+}
+
+.hero-aurora {
+  background:
+    radial-gradient(ellipse 50% 40% at 18% 78%, rgba(45, 90, 69, 0.45), transparent 60%),
+    radial-gradient(ellipse 40% 35% at 82% 22%, rgba(200, 197, 190, 0.14), transparent 55%),
+    radial-gradient(ellipse 30% 25% at 60% 60%, rgba(61, 122, 92, 0.18), transparent 50%);
+  animation: aurora-drift 20s ease-in-out infinite;
+}
+
+.hero-sweep {
+  overflow: hidden;
+}
+
+.hero-sweep::after {
+  content: "";
+  position: absolute;
+  top: -25%;
+  left: 0;
+  width: 38%;
+  height: 150%;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(232, 230, 227, 0.04) 35%,
+    rgba(168, 181, 160, 0.1) 50%,
+    rgba(232, 230, 227, 0.05) 65%,
+    transparent 100%
+  );
+  animation: light-sweep 16s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero-film {
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.hero-diagonal {
+  background: linear-gradient(
+    122deg,
+    transparent 0%,
+    transparent 42%,
+    rgba(232, 230, 227, 0.03) 50%,
+    transparent 58%,
+    transparent 100%
+  );
+}
+
+.map-embed {
+  filter: grayscale(1) invert(0.92) contrast(0.85);
+  display: block;
+}
+
+.card-lux {
+  position: relative;
+  transition:
+    border-color 0.5s ease,
+    box-shadow 0.5s ease,
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-lux:hover {
+  border-color: rgba(168, 181, 160, 0.38);
+  box-shadow:
+    0 0 0 1px rgba(168, 181, 160, 0.18),
+    0 0 70px rgba(26, 58, 47, 0.42),
+    0 24px 50px rgba(0, 0, 0, 0.4);
+}
+
+.sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(232, 230, 227, 0.07) 45%,
+    rgba(168, 181, 160, 0.08) 50%,
+    rgba(232, 230, 227, 0.05) 55%,
+    transparent 80%
+  );
+  background-size: 220% 100%;
+  animation: sheen-slide 9s ease-in-out infinite;
+}
+
+@keyframes light-sweep {
+  0% {
+    transform: translateX(-130%) skewX(-18deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateX(280%) skewX(-18deg);
+    opacity: 0;
+  }
+}
+
+@keyframes aurora-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(6%, -8%) scale(1.12);
+  }
+}
+
+@keyframes sheen-slide {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -80% 0;
+  }
+}
+
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-ring {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes scan-line {
+  0% {
+    transform: translateY(-120%);
+  }
+  100% {
+    transform: translateY(220%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

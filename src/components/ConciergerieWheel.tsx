@@ -12,7 +12,7 @@ export function ConciergerieWheel() {
   const cy = 200;
 
   return (
-    <section className="section-pad py-24 md:py-32">
+    <section className="section-pad section-mesh relative py-24 md:py-32">
       <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
         <Reveal>
           <p className="eyebrow mb-4">Conciergerie</p>
@@ -69,7 +69,7 @@ export function ConciergerieWheel() {
               textAnchor="middle"
               fill="#e8e6e3"
               fontSize="11"
-              fontFamily="var(--font-montserrat), sans-serif"
+              fontFamily="Verdana, Geneva, sans-serif"
               letterSpacing="2"
             >
               360°
@@ -80,7 +80,7 @@ export function ConciergerieWheel() {
               textAnchor="middle"
               fill="#a8b5a0"
               fontSize="9"
-              fontFamily="var(--font-montserrat), sans-serif"
+              fontFamily="Verdana, Geneva, sans-serif"
               letterSpacing="1"
             >
               NATIOPARK
@@ -121,7 +121,7 @@ export function ConciergerieWheel() {
                     textAnchor="middle"
                     fill="#c8c5be"
                     fontSize="10"
-                    fontFamily="var(--font-montserrat), sans-serif"
+                    fontFamily="Verdana, Geneva, sans-serif"
                   >
                     {label}
                   </text>

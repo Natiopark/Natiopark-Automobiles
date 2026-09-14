@@ -16,9 +16,9 @@ export const site = {
       name: "Gare TGV St Charles",
       address: "93 Boulevard National",
       postal: "13003 Marseille",
-      mapQuery: "93+Boulevard+National,+13003+Marseille",
-      osmEmbed:
-        "https://www.openstreetmap.org/export/embed.html?bbox=5.370%2C43.295%2C5.390%2C43.310&layer=mapnik&marker=43.3025%2C5.3805",
+      mapQuery: "93 Boulevard National, 13003 Marseille",
+      mapsEmbed:
+        "https://www.google.com/maps?q=93%20Boulevard%20National%2C%2013003%20Marseille&output=embed",
     },
     {
       id: "aix",
@@ -26,9 +26,9 @@ export const site = {
       name: "Aix-en-Provence Centre",
       address: "18 chemin de la pâquerette",
       postal: "13090 Aix en Provence",
-      mapQuery: "18+chemin+de+la+pâquerette,+13090+Aix-en-Provence",
-      osmEmbed:
-        "https://www.openstreetmap.org/export/embed.html?bbox=5.430%2C43.515%2C5.460%2C43.535&layer=mapnik&marker=43.5250%2C5.4450",
+      mapQuery: "18 chemin de la pâquerette, 13090 Aix-en-Provence",
+      mapsEmbed:
+        "https://www.google.com/maps?q=18%20chemin%20de%20la%20p%C3%A2querette%2C%2013090%20Aix-en-Provence&output=embed",
     },
   ],
   nav: [

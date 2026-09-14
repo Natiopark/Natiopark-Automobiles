@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function VehiculesPage() {
   return (
     <>
-      <section className="section-pad relative overflow-hidden pt-32 pb-12 md:pt-40 md:pb-16">
+      <section className="section-pad section-aurora relative overflow-hidden pt-32 pb-12 md:pt-40 md:pb-16">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(45,90,69,0.2),transparent_55%)]" />
         <div className="relative mx-auto max-w-7xl">
           <Reveal>

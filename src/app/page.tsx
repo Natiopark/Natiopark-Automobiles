@@ -1,20 +1,20 @@
 import { Hero } from "@/components/Hero";
+import { StatsStrip } from "@/components/StatsStrip";
 import { Positioning } from "@/components/Positioning";
-import { ParcoursInfographic } from "@/components/ParcoursInfographic";
+import { ServiceOrbitInfographic } from "@/components/ServiceOrbitInfographic";
 import { ConciergerieWheel } from "@/components/ConciergerieWheel";
 import { DualCenters } from "@/components/DualCenters";
 import { RdvNotice } from "@/components/RdvNotice";
 import { Testimonials } from "@/components/Testimonials";
-import { Logo3D } from "@/components/Logo3D";
 
 export default function AccueilPage() {
   return (
     <>
       <Hero />
+      <StatsStrip />
       <Positioning />
-      <ParcoursInfographic />
+      <ServiceOrbitInfographic />
       <ConciergerieWheel />
-      <Logo3D />
       <DualCenters />
       <RdvNotice />
       <Testimonials page="home" />
