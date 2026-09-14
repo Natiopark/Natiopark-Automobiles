@@ -153,4 +153,7 @@ export const vehicles = [
   { src: "/photos/simongosselinphotography_dsc_3507-edit-dOqaPnlgljcPlV7r.jpg", alt: "Automobile sélectionnée — photographie Simon Gosselin" },
   { src: "/photos/img_0128-Awv4pZwE41UJgEKo.JPG", alt: "Automobile sélectionnée — collection" },
   { src: "/photos/img_2140-Yg2jJ6LZZrh2NGM5.jpeg", alt: "Automobile sélectionnée — atelier" },
+  { src: "/photos/bg-911-turbo-rear.jpg", alt: "Porsche 911 Turbo S — vue arrière" },
+  { src: "/photos/bg-bmw-x3m.jpg", alt: "BMW X3 M" },
+  { src: "/photos/bg-718-spyder-rear.jpg", alt: "Porsche 718 Spyder — vue arrière" },
 ];

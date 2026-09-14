@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
 import { GoogleMapEmbed } from "@/components/GoogleMapEmbed";
+import { SectionPhotoBg } from "@/components/SectionPhotoBg";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -13,21 +14,33 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <section className="section-pad section-aurora relative overflow-hidden pt-32 pb-12 md:pt-40 md:pb-16">
-        <div className="relative mx-auto max-w-7xl">
+      <SectionPhotoBg
+        src="/photos/bg-bmw-x3m.jpg"
+        alt="BMW X3 M — NatioPark Automobiles"
+        priority
+        objectPosition="center 40%"
+        className="section-pad pt-32 pb-12 md:pt-40 md:pb-16"
+      >
+        <div className="mx-auto max-w-7xl">
           <Reveal>
             <p className="eyebrow mb-4">Contact</p>
             <h1 className="display max-w-3xl text-[clamp(2.5rem,6vw,5rem)] text-platinum">
               Échangeons sur votre projet
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted">
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-silver/90">
               {site.reception}
             </p>
           </Reveal>
         </div>
-      </section>
+      </SectionPhotoBg>
 
-      <section className="section-pad section-mesh pb-20">
+      <SectionPhotoBg
+        src="/photos/bg-r21-turbo.jpg"
+        alt="Renault 21 Turbo — NatioPark Automobiles"
+        objectPosition="center 50%"
+        heavy
+        className="section-pad pb-20 pt-12 md:pt-16"
+      >
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <Reveal>
@@ -84,7 +97,7 @@ export default function ContactPage() {
             ))}
           </div>
         </div>
-      </section>
+      </SectionPhotoBg>
     </>
   );
 }
