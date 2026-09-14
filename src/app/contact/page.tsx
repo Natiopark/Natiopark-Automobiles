@@ -1,0 +1,92 @@
+import type { Metadata } from "next";
+import { Reveal } from "@/components/Reveal";
+import { ContactForm } from "@/components/ContactForm";
+import { site } from "@/data/site";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Contactez NatioPark Automobiles à Marseille et Aix-en-Provence. Réception uniquement sur rendez-vous.",
+};
+
+export default function ContactPage() {
+  return (
+    <>
+      <section className="section-pad relative overflow-hidden pt-32 pb-12 md:pt-40 md:pb-16">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(26,58,47,0.28),transparent_50%)]" />
+        <div className="relative mx-auto max-w-7xl">
+          <Reveal>
+            <p className="eyebrow mb-4">Contact</p>
+            <h1 className="display max-w-3xl text-[clamp(2.5rem,6vw,5rem)] text-platinum">
+              Échangeons sur votre projet
+            </h1>
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted">
+              {site.reception}
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section-pad pb-20">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-7">
+            <Reveal>
+              <ContactForm />
+            </Reveal>
+          </div>
+
+          <div className="space-y-6 lg:col-span-5">
+            <Reveal delay={0.08}>
+              <div className="glass rounded-sm p-6 md:p-8">
+                <h2 className="eyebrow mb-4">Coordonnées</h2>
+                <ul className="space-y-4 text-sm text-silver">
+                  <li>
+                    <span className="block text-xs tracking-widest text-muted uppercase">E-mail</span>
+                    <a className="mt-1 inline-block hover:text-platinum" href={`mailto:${site.email}`}>
+                      {site.email}
+                    </a>
+                  </li>
+                  <li>
+                    <span className="block text-xs tracking-widest text-muted uppercase">Téléphones</span>
+                    <div className="mt-1 flex flex-col gap-1">
+                      {site.phones.map((p) => (
+                        <a key={p.href} className="hover:text-platinum" href={p.href}>
+                          {p.label}
+                        </a>
+                      ))}
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </Reveal>
+
+            {site.centers.map((c, i) => (
+              <Reveal key={c.id} delay={0.1 + i * 0.08}>
+                <div className="glass overflow-hidden rounded-sm">
+                  <div className="p-6 md:p-8">
+                    <h3 className="display text-2xl text-platinum">{c.city}</h3>
+                    <p className="mt-1 text-sm text-accent">{c.name}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-muted">
+                      {c.address}
+                      <br />
+                      {c.postal}
+                    </p>
+                  </div>
+                  <div className="relative h-48 border-t border-white/5 bg-charcoal-deep">
+                    <iframe
+                      title={`Carte ${c.city}`}
+                      src={c.osmEmbed}
+                      className="h-full w-full grayscale invert-[0.88] contrast-125 opacity-90"
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

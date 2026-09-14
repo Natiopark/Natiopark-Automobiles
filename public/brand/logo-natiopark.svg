@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="NatioPark Automobiles">
+  <circle cx="100" cy="100" r="88" fill="none" stroke="#2D2E36" stroke-width="6.5"/>
+  <path fill="#2D2E36" d="M50 55h32l48 78V55h20v90h-32L70 67v78H50V55z"/>
+</svg>
