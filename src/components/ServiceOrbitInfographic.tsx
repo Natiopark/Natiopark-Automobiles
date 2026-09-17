@@ -202,7 +202,7 @@ export function ServiceOrbitInfographic() {
         }}
       />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+      <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
         <Reveal>
           <p className="eyebrow mb-4">Un interlocuteur unique</p>
           <h2 className="display text-4xl text-platinum md:text-5xl">
@@ -225,7 +225,7 @@ export function ServiceOrbitInfographic() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.12} className="flex justify-center">
+        <Reveal delay={0.12} className="flex h-full items-center justify-center self-center lg:min-h-full">
           <svg
             viewBox="0 0 480 480"
             className="h-auto w-full max-w-lg drop-shadow-2xl"
