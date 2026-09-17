@@ -68,16 +68,16 @@ export function StatsStrip() {
 
       {/* Large discreet Natiopark mark — center background */}
       <div
-        className="pointer-events-none absolute left-1/2 top-1/2 z-0 w-[min(72vw,520px)] -translate-x-1/2 -translate-y-1/2 select-none"
+        className="pointer-events-none absolute left-1/2 top-1/2 z-0 w-[min(52vw,360px)] -translate-x-1/2 -translate-y-1/2 select-none"
         aria-hidden
       >
         <Image
           src="/brand/natiopark_logo_blanc_transparent-AVL769rD7WsrM2Gq.png"
           alt=""
-          width={520}
-          height={520}
-          className="h-auto w-full opacity-[0.045] md:opacity-[0.055]"
-          sizes="(max-width: 768px) 72vw, 520px"
+          width={360}
+          height={360}
+          className="h-auto w-full opacity-[0.028] md:opacity-[0.032]"
+          sizes="(max-width: 768px) 52vw, 360px"
           priority={false}
         />
       </div>

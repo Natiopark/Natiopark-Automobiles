@@ -38,9 +38,9 @@ export default function ServicesPage() {
       </SectionPhotoBg>
 
       <SectionPhotoBg
-        src="/photos/bg-718-spyder-rear.jpg"
-        alt="Porsche 718 Spyder — vue arrière"
-        objectPosition="center 55%"
+        src="/photos/bg-718-spyder-natiopark.jpg"
+        alt="Porsche 718 Spyder — plaque Natiopark"
+        objectPosition="center 45%"
         heavy
         className="section-pad pb-16 pt-16 md:pt-24"
       >

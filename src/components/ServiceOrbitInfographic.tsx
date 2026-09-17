@@ -202,30 +202,33 @@ export function ServiceOrbitInfographic() {
         }}
       />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
+      <div className="relative z-10 mx-auto max-w-7xl">
         <Reveal>
           <p className="eyebrow mb-4">Un interlocuteur unique</p>
-          <h2 className="display text-4xl text-platinum md:text-5xl">
+          <h2 className="display max-w-3xl text-4xl text-platinum md:text-5xl">
             Un accompagnement sur mesure à 360°
           </h2>
-          <p className="mt-5 max-w-lg text-sm leading-relaxed text-silver/85 md:text-base">
+          <p className="mt-5 max-w-2xl text-sm leading-relaxed text-silver/85 md:text-base">
             Chaque projet bénéficie d&apos;un accompagnement sur mesure, avec
             l&apos;ensemble des services réunis au sein d&apos;un même écosystème :
             achat &amp; vente, detailing, transport, immatriculation (SIV),
             financement, entretien, conciergerie et carrosserie. Un interlocuteur
             unique pour une coordination fluide.
           </p>
+        </Reveal>
+
+        {/* Buttons + orbit: orbit vertically centered on the button grid */}
+        <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-12">
           <div
-            className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-2 md:gap-4"
+            className="grid grid-cols-2 gap-3 md:gap-4"
             style={{ perspective: reduce ? undefined : 1000 }}
           >
             {services.map((s, i) => (
               <ServiceChip key={s.id} service={s} index={i} reduce={reduce} />
             ))}
           </div>
-        </Reveal>
 
-        <Reveal delay={0.12} className="flex h-full items-center justify-center self-center lg:min-h-full">
+          <Reveal delay={0.12} className="flex items-center justify-center">
           <svg
             viewBox="0 0 480 480"
             className="h-auto w-full max-w-lg drop-shadow-2xl"
@@ -391,7 +394,8 @@ export function ServiceOrbitInfographic() {
               />
             )}
           </svg>
-        </Reveal>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
