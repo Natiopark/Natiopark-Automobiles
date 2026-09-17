@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 
@@ -62,11 +63,28 @@ export function StatsStrip() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="section-pad section-aurora relative py-16 md:py-20">
+    <section className="section-pad section-aurora relative overflow-hidden py-24 md:py-32">
       <div className="divider-line absolute inset-x-0 top-0" />
+
+      {/* Large discreet Natiopark mark — center background */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 z-0 w-[min(72vw,520px)] -translate-x-1/2 -translate-y-1/2 select-none"
+        aria-hidden
+      >
+        <Image
+          src="/brand/natiopark_logo_blanc_transparent-AVL769rD7WsrM2Gq.png"
+          alt=""
+          width={520}
+          height={520}
+          className="h-auto w-full opacity-[0.045] md:opacity-[0.055]"
+          sizes="(max-width: 768px) 72vw, 520px"
+          priority={false}
+        />
+      </div>
+
       <div
         ref={ref}
-        className="mx-auto flex w-full max-w-7xl flex-col gap-6 md:flex-row md:justify-between"
+        className="relative z-10 mx-auto flex min-h-[220px] w-full max-w-7xl flex-col items-stretch justify-center gap-8 md:min-h-[260px] md:flex-row md:items-center md:justify-between md:gap-10"
       >
         {stats.map((s, i) => (
           <motion.article
@@ -74,7 +92,7 @@ export function StatsStrip() {
             initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-            className="glass sheen relative w-full max-w-sm overflow-hidden rounded-sm px-6 py-8 text-center md:w-80"
+            className="glass sheen relative w-full max-w-sm overflow-hidden rounded-sm px-6 py-12 text-center md:w-80 md:py-14"
           >
             <div className="pointer-events-none absolute -top-10 left-1/2 h-24 w-24 -translate-x-1/2 rounded-full bg-forest-mid/25 blur-2xl" />
             <CountUp value={s.value} suffix={s.suffix} display={s.display} start={inView} />
