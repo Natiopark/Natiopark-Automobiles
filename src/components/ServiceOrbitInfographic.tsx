@@ -75,15 +75,16 @@ export function ServiceOrbitInfographic() {
 
       <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
         <Reveal>
-          <p className="eyebrow mb-4">Écosystème</p>
+          <p className="eyebrow mb-4">Un interlocuteur unique</p>
           <h2 className="display text-4xl text-platinum md:text-5xl">
-            Une orbite de services 360°
+            Un accompagnement sur mesure à 360°
           </h2>
           <p className="mt-5 max-w-lg text-sm leading-relaxed text-silver/85 md:text-base">
-            Autour de chaque projet, les métiers gravitent : achat, vente,
-            detailing, transport, SIV, financement, révision, lavage et
-            conciergerie — un seul interlocuteur, coordonné depuis Marseille et
-            Aix-en-Provence.
+            Chaque projet bénéficie d&apos;un accompagnement sur mesure, avec
+            l&apos;ensemble des services réunis au sein d&apos;un même écosystème :
+            acquisition et cession, detailing, transport, immatriculation,
+            financement, entretien, lavage et conciergerie. Un interlocuteur
+            unique pour une coordination fluide.
           </p>
           <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
             {services.map((s) => (

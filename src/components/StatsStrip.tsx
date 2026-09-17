@@ -4,8 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 
 const stats = [
-  { value: 360, suffix: "°", label: "Service conciergerie", caption: "Un interlocuteur unique" },
-  { value: 2, suffix: "", label: "Centres en Provence", caption: "Marseille & Aix" },
+  { value: 360, suffix: "°", label: "Service conciergerie", caption: "Accompagnement total" },
   { value: 1, suffix: "", label: "Rendez-vous uniquement", caption: "Confidentialité & exigence", display: "RDV" },
 ];
 
@@ -65,7 +64,7 @@ export function StatsStrip() {
   return (
     <section className="section-pad section-aurora relative py-16 md:py-20">
       <div className="divider-line absolute inset-x-0 top-0" />
-      <div ref={ref} className="mx-auto grid max-w-7xl gap-8 md:grid-cols-3">
+      <div ref={ref} className="mx-auto grid max-w-3xl gap-8 md:grid-cols-2">
         {stats.map((s, i) => (
           <motion.article
             key={s.label}
