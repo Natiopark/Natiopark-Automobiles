@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 
 const stats = [
-  { value: 360, suffix: "°", label: "Service conciergerie", caption: "Accompagnement total" },
+  { value: 360, suffix: "°", label: "Service conciergerie", caption: "Accompagnement sur mesure" },
   { value: 1, suffix: "", label: "Rendez-vous uniquement", caption: "Confidentialité & exigence", display: "RDV" },
 ];
 
@@ -64,14 +64,17 @@ export function StatsStrip() {
   return (
     <section className="section-pad section-aurora relative py-16 md:py-20">
       <div className="divider-line absolute inset-x-0 top-0" />
-      <div ref={ref} className="mx-auto grid max-w-3xl gap-8 md:grid-cols-2">
+      <div
+        ref={ref}
+        className="mx-auto flex w-full max-w-7xl flex-col gap-6 md:flex-row md:justify-between"
+      >
         {stats.map((s, i) => (
           <motion.article
             key={s.label}
             initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-            className="glass sheen relative overflow-hidden rounded-sm px-6 py-8 text-center"
+            className="glass sheen relative w-full max-w-sm overflow-hidden rounded-sm px-6 py-8 text-center md:w-80"
           >
             <div className="pointer-events-none absolute -top-10 left-1/2 h-24 w-24 -translate-x-1/2 rounded-full bg-forest-mid/25 blur-2xl" />
             <CountUp value={s.value} suffix={s.suffix} display={s.display} start={inView} />
