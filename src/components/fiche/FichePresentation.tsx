@@ -8,6 +8,8 @@ type Props = {
 };
 
 export function FichePresentation({ vehicle }: Props) {
+  const isDemo = vehicle.isDemo === true;
+
   return (
     <section className="section-pad section-luxury relative py-16 md:py-24">
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:gap-14">
@@ -20,9 +22,11 @@ export function FichePresentation({ vehicle }: Props) {
             <p className="mt-6 text-sm leading-relaxed text-silver/90 md:text-base md:leading-relaxed">
               {vehicle.presentation}
             </p>
-            <p className="mt-4 text-xs tracking-[0.14em] text-muted uppercase">
-              Contenu démonstratif — modèle de dossier client
-            </p>
+            {isDemo ? (
+              <p className="mt-4 text-xs tracking-[0.14em] text-muted uppercase">
+                Contenu démonstratif — modèle de dossier client
+              </p>
+            ) : null}
           </Reveal>
         </div>
 
@@ -44,6 +48,54 @@ export function FichePresentation({ vehicle }: Props) {
                   </dt>
                   <dd className="font-medium text-platinum">{vehicle.reference}</dd>
                 </div>
+                {vehicle.vin ? (
+                  <div className="flex items-baseline justify-between gap-4 border-b border-white/8 pb-3">
+                    <dt className="text-[0.7rem] tracking-[0.18em] text-muted uppercase">
+                      VIN
+                    </dt>
+                    <dd className="font-mono text-xs font-medium text-platinum sm:text-sm">
+                      {vehicle.vin}
+                    </dd>
+                  </div>
+                ) : null}
+                {vehicle.codeModele ? (
+                  <div className="flex items-baseline justify-between gap-4 border-b border-white/8 pb-3">
+                    <dt className="text-[0.7rem] tracking-[0.18em] text-muted uppercase">
+                      Code modèle
+                    </dt>
+                    <dd className="font-medium text-platinum">{vehicle.codeModele}</dd>
+                  </div>
+                ) : null}
+                {vehicle.miseEnCirculation ? (
+                  <div className="flex items-baseline justify-between gap-4 border-b border-white/8 pb-3">
+                    <dt className="text-[0.7rem] tracking-[0.18em] text-muted uppercase">
+                      1re MEC
+                    </dt>
+                    <dd className="text-right text-sm font-medium text-platinum">
+                      {vehicle.miseEnCirculation}
+                    </dd>
+                  </div>
+                ) : null}
+                {vehicle.livraisonNeuf ? (
+                  <div className="flex items-baseline justify-between gap-4 border-b border-white/8 pb-3">
+                    <dt className="text-[0.7rem] tracking-[0.18em] text-muted uppercase">
+                      Livraison neuf
+                    </dt>
+                    <dd className="text-right text-sm font-medium text-platinum">
+                      {vehicle.livraisonNeuf}
+                    </dd>
+                  </div>
+                ) : null}
+                {vehicle.centreEntretien ? (
+                  <div className="flex items-baseline justify-between gap-4 border-b border-white/8 pb-3">
+                    <dt className="text-[0.7rem] tracking-[0.18em] text-muted uppercase">
+                      Centre entretien
+                    </dt>
+                    <dd className="max-w-[60%] text-right text-sm text-silver">
+                      {vehicle.centreEntretien}
+                    </dd>
+                  </div>
+                ) : null}
                 <div className="flex items-baseline justify-between gap-4 border-b border-white/8 pb-3">
                   <dt className="text-[0.7rem] tracking-[0.18em] text-muted uppercase">
                     Prix

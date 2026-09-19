@@ -10,6 +10,7 @@ import { FichePresentation } from "@/components/fiche/FichePresentation";
 import { FicheOptions } from "@/components/fiche/FicheOptions";
 import { FicheTimeline } from "@/components/fiche/FicheTimeline";
 import { FicheDocs } from "@/components/fiche/FicheDocs";
+import { FichePaintMap } from "@/components/fiche/FichePaintMap";
 import { FicheGallery } from "@/components/fiche/FicheGallery";
 import { FicheCta } from "@/components/fiche/FicheCta";
 
@@ -60,6 +61,7 @@ export default async function FicheVehiclePage({ params }: PageProps) {
       <FicheOptions vehicle={vehicle} />
       <FicheTimeline vehicle={vehicle} />
       <FicheDocs vehicle={vehicle} />
+      <FichePaintMap vehicle={vehicle} />
       <FicheGallery photos={vehicle.photos} title={fullName} />
       <FicheCta
         marque={vehicle.marque}
