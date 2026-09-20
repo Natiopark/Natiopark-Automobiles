@@ -422,7 +422,7 @@ const dossiers: VehicleDossier[] = [
       "/photos/fiche-992-turbo-s-cabrio-04.jpg",
       "/photos/fiche-992-turbo-s-cabrio-05.jpg",
       "/photos/fiche-992-turbo-s-cabrio-06.jpg",
-    ],,
+    ],
     highlights: [
       "650 ch · Turbo S Cabriolet",
       "61 664 km",
