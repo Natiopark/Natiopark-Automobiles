@@ -303,6 +303,8 @@ const dossiers: VehicleDossier[] = [
         category: "Carbone",
         items: [
           { name: "Seuils de porte carbone mat éclairés", detail: "7M8" },
+          { name: "Rétroviseurs extérieurs en carbone" },
+          { name: "Triangles de porte en carbone" },
         ],
       },
       {
