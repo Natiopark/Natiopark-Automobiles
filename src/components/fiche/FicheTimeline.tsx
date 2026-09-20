@@ -22,6 +22,10 @@ export function FicheTimeline({ vehicle }: Props) {
           <h2 className="display text-3xl text-platinum md:text-4xl">
             Historique &amp; provenance
           </h2>
+          <p className="mt-3 max-w-2xl text-sm text-muted">
+            Entretien exclusif réalisé par le même centre Porsche où la voiture a
+            été commandée neuve.
+          </p>
         </Reveal>
 
         <div className="relative mt-8 grid gap-6 lg:grid-cols-[88px_1fr]">
