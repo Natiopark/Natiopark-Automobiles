@@ -102,19 +102,11 @@ export function FichePresentation({ vehicle }: Props) {
                   </dt>
                   <dd className="font-medium text-platinum">{vehicle.prixAffiche}</dd>
                 </div>
-                <div className="flex items-baseline justify-between gap-4 border-b border-white/8 pb-3">
+                <div className="flex items-baseline justify-between gap-4">
                   <dt className="text-[0.7rem] tracking-[0.18em] text-muted uppercase">
                     Disponibilité
                   </dt>
                   <dd className="font-medium text-accent">Sur rendez-vous</dd>
-                </div>
-                <div className="flex items-baseline justify-between gap-4">
-                  <dt className="text-[0.7rem] tracking-[0.18em] text-muted uppercase">
-                    Centres
-                  </dt>
-                  <dd className="text-right text-sm text-silver">
-                    Marseille · Aix-en-Provence
-                  </dd>
                 </div>
               </dl>
 

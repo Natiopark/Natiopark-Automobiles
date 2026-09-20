@@ -196,13 +196,6 @@ export function FicheSpecs({ vehicle }: Props) {
           ))}
         </div>
 
-        {vehicle.coupleNm ? (
-          <Reveal delay={0.15}>
-            <p className="mt-8 text-center text-xs tracking-[0.2em] text-muted uppercase">
-              Couple max. · {vehicle.coupleNm} Nm
-            </p>
-          </Reveal>
-        ) : null}
       </div>
     </section>
   );
