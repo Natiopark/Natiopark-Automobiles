@@ -37,9 +37,8 @@ export function FichePaintMap({ vehicle }: Props) {
               />
             </div>
             <figcaption className="mt-4 px-1 pb-1 text-center text-xs leading-relaxed text-silver/80 md:text-sm">
-              Tous les panneaux mesurés affichent{" "}
-              <span className="font-medium text-accent">150&nbsp;µm</span> —
-              cohérence usine, absence de reprise visible.
+              Lectures homogènes sur les panneaux mesurés — cohérence usine,
+              absence de reprise visible.
             </figcaption>
           </figure>
         </Reveal>

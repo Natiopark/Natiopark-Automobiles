@@ -71,7 +71,6 @@ const dossiers: VehicleDossier[] = [
     couleurExt: "Noir Intense métallisé",
     couleurInt: "Cuir noir / Alcantara",
     puissanceCh: 580,
-    coupleNm: 750,
     boite: "PDK 8 rapports",
     transmission: "Propulsion intégrale (AWD)",
     carburant: "Essence",
@@ -84,7 +83,6 @@ const dossiers: VehicleDossier[] = [
       { label: "Année", value: "2019" },
       { label: "Kilométrage", value: "28 400", unit: "km" },
       { label: "Puissance", value: "580", unit: "ch" },
-      { label: "Couple", value: "750", unit: "Nm" },
       { label: "0–100 km/h", value: "2,7", unit: "s" },
       { label: "Vitesse max.", value: "330", unit: "km/h" },
       { label: "Cylindrée", value: "3 800", unit: "cm³" },
@@ -214,7 +212,7 @@ const dossiers: VehicleDossier[] = [
     paintMap: "/photos/fiche-992-turbo-s-cabrio-paint-map.png",
     isDemo: false,
     presentation:
-      "Porsche 911 (992) Turbo S Cabriolet 3.8 livrée neuve le 11 novembre 2020 au Porsche Zentrum Nürnberg. Carrosserie Bleu nuit métallisé (Nachtblau Metallic, code N5) assortie d'une capote bleue (7V) et d'un habitacle Sport-Tex Square noir. Mécanique flat-6 biturbo 3,8 litres : 650 ch, boîte PDK 8 rapports et traction intégrale. Au 8 avril 2026, le compteur affiche 61 664 km — suivi intégral réseau officiel Porsche Nuremberg depuis la livraison, avec douze passages atelier facturés et documentés. Configuration d'origine riche de 32 équipements sur commande. Contrôle technique allemand HU/AU (§29 StVZO) valide jusqu'en décembre 2027 ; mesures d'épaisseur de peinture homogènes à 150 µm sur les panneaux contrôlés, sans reprise visible. Dossier NatioPark Automobiles à Marseille — présentation confidentielle sur rendez-vous.",
+      "Porsche 911 (992) Turbo S Cabriolet 3.8 livrée neuve le 11 novembre 2020 au Porsche Zentrum Nürnberg. Carrosserie Bleu nuit métallisé (Nachtblau Metallic, code N5) assortie d'une capote bleue (7V) et d'un habitacle Sport-Tex Square noir. Mécanique flat-6 biturbo 3,8 litres : 650 ch, boîte PDK 8 rapports et traction intégrale. Au 8 avril 2026, le compteur affiche 61 664 km — suivi intégral réseau officiel Porsche Nuremberg depuis la livraison, avec douze passages atelier facturés et documentés. Configuration d'origine riche de 32 équipements sur commande. Contrôle technique allemand HU/AU (§29 StVZO) valide jusqu'en décembre 2027. Dossier NatioPark Automobiles à Marseille — présentation confidentielle sur rendez-vous.",
     specs: [
       { label: "Année / MEC", value: "2020 · 6 nov. 2020" },
       { label: "Kilométrage", value: "61 664", unit: "km" },
@@ -407,7 +405,7 @@ const dossiers: VehicleDossier[] = [
         note: "Valide jusqu'en 12/2027",
       },
       {
-        label: "Mesures épaisseurs peinture (150 µm homogènes)",
+        label: "Mesures d'épaisseurs de peinture",
         status: "disponible",
       },
       {
