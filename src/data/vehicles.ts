@@ -414,6 +414,7 @@ const dossiers: VehicleDossier[] = [
       },
     ],
     photos: [
+      "/photos/fiche-992-hero.jpg",
       "/photos/fiche-992-book-01.jpg",
       "/photos/fiche-992-book-02.jpg",
       "/photos/fiche-992-book-03.jpg",
