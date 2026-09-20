@@ -60,10 +60,6 @@ export function FicheDocs({ vehicle }: Props) {
           <h2 className="display text-3xl text-platinum md:text-4xl">
             Documentation
           </h2>
-          <p className="mt-4 max-w-2xl text-sm text-muted">
-            Schéma visuel des pièces du dossier — carnet, factures, COC, CT,
-            garantie et expertise.
-          </p>
         </Reveal>
 
         {/* Schema strip */}
@@ -92,9 +88,9 @@ export function FicheDocs({ vehicle }: Props) {
               viewport={{ once: true }}
               transition={{ duration: 1.5 }}
             />
-            {["Carnet", "Factures", "COC", "CT", "Expertise", "Garanties"].map(
+            {["Carnet", "Factures", "COC", "CT"].map(
               (label, i) => {
-                const x = 70 + i * 140;
+                const x = 110 + i * 220;
                 return (
                   <g key={label}>
                     <motion.rect

@@ -165,8 +165,6 @@ const dossiers: VehicleDossier[] = [
       { label: "Factures d'entretien", status: "disponible" },
       { label: "Certificat de conformité (COC)", status: "disponible" },
       { label: "Contrôle technique", status: "disponible", note: "Valide" },
-      { label: "Rapport d'expertise", status: "sur demande" },
-      { label: "Garantie constructeur / extension", status: "archive", note: "Hors période — options sur devis" },
       { label: "Historique kilométrage", status: "disponible" },
       { label: "Doubles de clés", status: "disponible", note: "2 jeux" },
     ],
@@ -424,10 +422,6 @@ const dossiers: VehicleDossier[] = [
       },
       {
         label: "Doubles de clés",
-        status: "sur demande",
-      },
-      {
-        label: "Rapport d'expertise complémentaire",
         status: "sur demande",
       },
     ],
