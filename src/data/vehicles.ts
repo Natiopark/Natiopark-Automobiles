@@ -433,7 +433,8 @@ const dossiers: VehicleDossier[] = [
       "61 664 km · suivi Porsche Nuremberg",
       "32 équipements sur commande",
       "CT valide jusqu'en 12/2027",
-      "Peinture homogène 150 µm",
+      "Suivi exclusif en centre Porsche",
+      "Première main",
     ],
   },
 ];

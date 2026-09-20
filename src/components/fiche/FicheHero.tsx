@@ -92,7 +92,7 @@ export function FicheHero({ vehicle }: Props) {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mt-8 flex flex-wrap gap-2"
         >
-          {vehicle.highlights.slice(0, 5).map((h) => (
+          {vehicle.highlights.slice(0, 6).map((h) => (
             <li
               key={h}
               className="glass rounded-sm px-3 py-1.5 text-[0.65rem] tracking-[0.16em] text-accent uppercase"
