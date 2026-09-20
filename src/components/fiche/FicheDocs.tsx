@@ -53,7 +53,7 @@ export function FicheDocs({ vehicle }: Props) {
   const reduce = useReducedMotion();
 
   return (
-    <section className="section-pad relative py-16 md:py-24">
+    <section className="section-pad relative py-10 md:py-14">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <p className="eyebrow mb-3">Dossier acheteur</p>
@@ -125,7 +125,7 @@ export function FicheDocs({ vehicle }: Props) {
           </svg>
         </div>
 
-        <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-4">
           {vehicle.documentation.map((doc, i) => (
             <Reveal key={doc.label} delay={(i % 4) * 0.05}>
               <article className="glass flex h-full flex-col rounded-sm p-5">

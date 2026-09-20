@@ -166,7 +166,6 @@ const dossiers: VehicleDossier[] = [
       { label: "Certificat de conformité (COC)", status: "disponible" },
       { label: "Contrôle technique", status: "disponible", note: "Valide" },
       { label: "Historique kilométrage", status: "disponible" },
-      { label: "Doubles de clés", status: "disponible", note: "2 jeux" },
     ],
     photos: [
       "/photos/orbit-porsche-911-turbo.jpg",
@@ -408,20 +407,11 @@ const dossiers: VehicleDossier[] = [
         note: "Valide jusqu'en 12/2027",
       },
       {
-        label: "Contrôle antipollution",
-        status: "disponible",
-        note: "Déc. 2025",
-      },
-      {
         label: "Mesures épaisseurs peinture (150 µm homogènes)",
         status: "disponible",
       },
       {
         label: "Certificat de conformité (COC)",
-        status: "sur demande",
-      },
-      {
-        label: "Doubles de clés",
         status: "sur demande",
       },
     ],
