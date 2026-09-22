@@ -28,7 +28,9 @@ export default function ServicesPage() {
           <Reveal>
             <p className="eyebrow mb-4">Services</p>
             <h1 className="display max-w-3xl text-[clamp(1.75rem,3.4vw,2.75rem)] text-platinum">
-              Un accompagnement transversal pour tous vos projets automobiles
+              Un accompagnement{" "}
+              <span className="text-[#c9a227]">transversal</span>{" "}
+              pour tous vos projets automobiles
             </h1>
             <p className="mt-12 max-w-2xl text-base leading-relaxed text-silver/90 md:mt-14">
               De la recherche à l&apos;acquisition, jusqu&apos;à l&apos;entretien et à la conservation de votre véhicule, chaque prestation est pensée dans les moindres détails pour vous offrir un accompagnement sur mesure, discret et exigeant.
