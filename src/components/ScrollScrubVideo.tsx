@@ -7,7 +7,11 @@ import { useReducedMotion } from "framer-motion";
  * Full-bleed looping muted background showreel (before orbit section).
  * Autoplay + loop; falls back to a static frame when prefers-reduced-motion.
  */
-export function ScrollScrubVideo() {
+export function ScrollScrubVideo({
+  src = "/videos/home-showreel.mp4",
+}: {
+  src?: string;
+}) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const reduce = useReducedMotion();
 
@@ -54,7 +58,7 @@ export function ScrollScrubVideo() {
     >
       <video
         ref={videoRef}
-        src="/videos/scroll-showreel.mp4"
+        src={src}
         muted
         playsInline
         loop
