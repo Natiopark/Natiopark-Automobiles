@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { vehicles } from "@/data/site";
-import { Reveal } from "./Reveal";
 
 export function VehicleGallery() {
   const [active, setActive] = useState<number | null>(null);
@@ -37,26 +36,25 @@ export function VehicleGallery() {
       {/* Layout A — Grille en paires: rear | front, 2 cols from sm */}
       <div className="mx-auto grid max-w-4xl gap-2 sm:grid-cols-2">
         {vehicles.map((v, i) => (
-            <Reveal key={v.src} delay={(i % 2) * 0.06} margin="0px" amount={0.15}>
-              <button
-                type="button"
-                onClick={() => setActive(i)}
-                className="group relative aspect-[4/3] w-full overflow-hidden rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-                aria-label={`Agrandir : ${v.alt}`}
-              >
-                <Image
-                  src={v.src}
-                  alt={v.alt}
-                  fill
-                  className="object-cover transition duration-700 group-hover:scale-105"
-                  sizes="(max-width: 640px) 100vw, 40vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent opacity-70 transition group-hover:opacity-90" />
-                <span className="absolute bottom-3 right-3 text-[0.65rem] tracking-[0.2em] text-platinum/80 uppercase opacity-0 transition group-hover:opacity-100">
-                  Voir
-                </span>
-              </button>
-            </Reveal>
+          <button
+            key={v.src}
+            type="button"
+            onClick={() => setActive(i)}
+            className="group relative aspect-[4/3] w-full overflow-hidden rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            aria-label={`Agrandir : ${v.alt}`}
+          >
+            <Image
+              src={v.src}
+              alt={v.alt}
+              fill
+              className="object-cover transition duration-700 group-hover:scale-105"
+              sizes="(max-width: 640px) 100vw, 40vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent opacity-70 transition group-hover:opacity-90" />
+            <span className="absolute bottom-3 right-3 text-[0.65rem] tracking-[0.2em] text-platinum/80 uppercase opacity-0 transition group-hover:opacity-100">
+              Voir
+            </span>
+          </button>
         ))}
       </div>
 
