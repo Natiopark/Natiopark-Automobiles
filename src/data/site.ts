@@ -278,7 +278,5 @@ export const galleryVehicles: GalleryVehicle[] = [
   },
 ];
 
-/** Flat list of all gallery shots for lightbox navigation */
-export const vehicles = galleryVehicles.flatMap((v) =>
-  [v.rear, v.front, ...(v.interior ? [v.interior] : [])],
-);
+/** Flat list of gallery shots for lightbox (rear + front only) */
+export const vehicles = galleryVehicles.flatMap((v) => [v.rear, v.front]);

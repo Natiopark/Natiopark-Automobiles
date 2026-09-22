@@ -39,33 +39,24 @@ export function VehicleGallery() {
 
   return (
     <>
-      {/* 3 cols: rear | front | interior (optional) — smaller tiles */}
-      <div className="mx-auto flex max-w-3xl flex-col gap-1.5">
+      {/* Pairs: rear | front, 2 cols */}
+      <div className="mx-auto flex max-w-4xl flex-col gap-2">
         {galleryVehicles.map((vehicle) => {
-          const shots = [vehicle.rear, vehicle.front, vehicle.interior ?? null];
+          const shots = [vehicle.rear, vehicle.front];
           return (
             <div
               key={vehicle.id}
-              className="grid grid-cols-3 gap-1.5"
+              className="grid grid-cols-2 gap-2"
               aria-label={vehicle.name}
             >
-              {shots.map((shot, slot) => {
-                if (!shot) {
-                  return (
-                    <div
-                      key={`${vehicle.id}-empty-${slot}`}
-                      className="aspect-[5/4] w-full rounded-sm border border-dashed border-white/10 bg-white/[0.02]"
-                      aria-hidden
-                    />
-                  );
-                }
+              {shots.map((shot) => {
                 const index = flatIndex.get(shot.src) ?? 0;
                 return (
                   <button
                     key={shot.src}
                     type="button"
                     onClick={() => setActive(index)}
-                    className="group relative aspect-[5/4] w-full overflow-hidden rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                    className="group relative aspect-[4/3] w-full overflow-hidden rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                     aria-label={`Agrandir : ${shot.alt}`}
                   >
                     <Image
@@ -73,10 +64,10 @@ export function VehicleGallery() {
                       alt={shot.alt}
                       fill
                       className="object-cover transition duration-700 group-hover:scale-105"
-                      sizes="(max-width: 768px) 33vw, 280px"
+                      sizes="(max-width: 640px) 100vw, 40vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent opacity-70 transition group-hover:opacity-90" />
-                    <span className="absolute bottom-2 right-2 text-[0.55rem] tracking-[0.2em] text-platinum/80 uppercase opacity-0 transition group-hover:opacity-100">
+                    <span className="absolute bottom-3 right-3 text-[0.65rem] tracking-[0.2em] text-platinum/80 uppercase opacity-0 transition group-hover:opacity-100">
                       Voir
                     </span>
                   </button>
