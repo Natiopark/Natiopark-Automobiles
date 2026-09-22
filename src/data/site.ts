@@ -191,4 +191,13 @@ export const vehicles = [
   // Porsche Boxster argent / toit et intérieur rouge
   { src: "/photos/gallery/dos-boxster-rouge.jpg", alt: "Porsche Boxster — vue arrière toit rouge, sélection NatioPark" },
   { src: "/photos/gallery/avant-boxster-rouge.jpg", alt: "Porsche Boxster — trois-quarts avant intérieur rouge, sélection NatioPark" },
+  // Porsche 993 Carrera 4S argent
+  { src: "/photos/gallery/dos-993-c4s.jpg", alt: "Porsche 993 Carrera 4S — vue arrière, sélection NatioPark" },
+  { src: "/photos/gallery/avant-993-c4s.jpg", alt: "Porsche 993 Carrera 4S — trois-quarts avant, sélection NatioPark" },
+  // Porsche 996 Turbo argent
+  { src: "/photos/gallery/dos-996-turbo.jpg", alt: "Porsche 996 Turbo — face avant, sélection NatioPark" },
+  { src: "/photos/gallery/avant-996-turbo.jpg", alt: "Porsche 996 Turbo — trois-quarts avant, sélection NatioPark" },
+  // Porsche 911 Carrera S gris foncé
+  { src: "/photos/gallery/dos-carrera-s.jpg", alt: "Porsche 911 Carrera S — vue arrière, sélection NatioPark" },
+  { src: "/photos/gallery/avant-carrera-s.jpg", alt: "Porsche 911 Carrera S — profil / trois-quarts avant, sélection NatioPark" },
 ];
