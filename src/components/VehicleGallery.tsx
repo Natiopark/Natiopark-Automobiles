@@ -1,12 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { vehicles } from "@/data/site";
+import { galleryVehicles, vehicles } from "@/data/site";
 
 export function VehicleGallery() {
   const [active, setActive] = useState<number | null>(null);
+
+  const flatIndex = useMemo(() => {
+    const map = new Map<string, number>();
+    vehicles.forEach((shot, i) => map.set(shot.src, i));
+    return map;
+  }, []);
 
   const close = useCallback(() => setActive(null), []);
   const prev = useCallback(() => {
@@ -33,29 +39,47 @@ export function VehicleGallery() {
 
   return (
     <>
-      {/* Layout A — Grille en paires: rear | front, 2 cols from sm */}
-      <div className="mx-auto grid max-w-4xl gap-2 sm:grid-cols-2">
-        {vehicles.map((v, i) => (
-          <button
-            key={v.src}
-            type="button"
-            onClick={() => setActive(i)}
-            className="group relative aspect-[4/3] w-full overflow-hidden rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-            aria-label={`Agrandir : ${v.alt}`}
-          >
-            <Image
-              src={v.src}
-              alt={v.alt}
-              fill
-              className="object-cover transition duration-700 group-hover:scale-105"
-              sizes="(max-width: 640px) 100vw, 40vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent opacity-70 transition group-hover:opacity-90" />
-            <span className="absolute bottom-3 right-3 text-[0.65rem] tracking-[0.2em] text-platinum/80 uppercase opacity-0 transition group-hover:opacity-100">
-              Voir
-            </span>
-          </button>
-        ))}
+      {/* 3 cols: rear | front | interior (optional) — smaller tiles */}
+      <div className="mx-auto flex max-w-3xl flex-col gap-1.5">
+        {galleryVehicles.map((vehicle) => {
+          const shots = [
+            vehicle.rear,
+            vehicle.front,
+            ...(vehicle.interior ? [vehicle.interior] : []),
+          ];
+          return (
+            <div
+              key={vehicle.id}
+              className="grid grid-cols-3 gap-1.5"
+              aria-label={vehicle.name}
+            >
+              {shots.map((shot) => {
+                const index = flatIndex.get(shot.src) ?? 0;
+                return (
+                  <button
+                    key={shot.src}
+                    type="button"
+                    onClick={() => setActive(index)}
+                    className="group relative aspect-[5/4] w-full overflow-hidden rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                    aria-label={`Agrandir : ${shot.alt}`}
+                  >
+                    <Image
+                      src={shot.src}
+                      alt={shot.alt}
+                      fill
+                      className="object-cover transition duration-700 group-hover:scale-105"
+                      sizes="(max-width: 768px) 33vw, 280px"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent opacity-70 transition group-hover:opacity-90" />
+                    <span className="absolute bottom-2 right-2 text-[0.55rem] tracking-[0.2em] text-platinum/80 uppercase opacity-0 transition group-hover:opacity-100">
+                      Voir
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          );
+        })}
       </div>
 
       <AnimatePresence>

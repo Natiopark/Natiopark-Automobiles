@@ -159,56 +159,123 @@ export const site = {
   ],
 };
 
-export const vehicles = [
-  // Porsche 911 Turbo Cabriolet gris / intérieur rouge
-  { src: "/photos/gallery/dos-02.jpg", alt: "Porsche 911 Turbo Cabriolet — vue arrière, sélection NatioPark" },
-  { src: "/photos/gallery/avant-09.jpg", alt: "Porsche 911 Turbo Cabriolet — trois-quarts avant, sélection NatioPark" },
-  // Porsche 718 Spyder RS gris
-  { src: "/photos/gallery/dos-06.jpg", alt: "Porsche 718 Spyder RS — vue arrière, sélection NatioPark" },
-  { src: "/photos/gallery/avant-04.jpg", alt: "Porsche 718 Spyder RS — trois-quarts avant, sélection NatioPark" },
-  // Porsche 911 Turbo S chalk/gris
-  { src: "/photos/gallery/dos-991-turbo-s.jpg", alt: "Porsche 911 Turbo S — vue arrière, sélection NatioPark" },
-  { src: "/photos/gallery/avant-991-turbo-s.jpg", alt: "Porsche 911 Turbo S — trois-quarts avant, sélection NatioPark" },
-  // Porsche 718 Spyder bleu
-  { src: "/photos/gallery/dos-04.jpg", alt: "Porsche 718 Spyder — vue arrière, sélection NatioPark" },
-  { src: "/photos/gallery/avant-spyder-bleu.jpg", alt: "Porsche 718 Spyder — trois-quarts avant, sélection NatioPark" },
-  // Porsche Boxster argent / toit et intérieur rouge
-  { src: "/photos/gallery/dos-boxster-rouge.jpg", alt: "Porsche Boxster — vue arrière toit rouge, sélection NatioPark" },
-  { src: "/photos/gallery/avant-boxster-rouge.jpg", alt: "Porsche Boxster — trois-quarts avant intérieur rouge, sélection NatioPark" },
-  // Alpine A110 bleu
-  { src: "/photos/gallery/dos-10.jpg", alt: "Alpine A110 — vue arrière, sélection NatioPark" },
-  { src: "/photos/gallery/avant-10.jpg", alt: "Alpine A110 — trois-quarts avant, sélection NatioPark" },
-  // Porsche Boxster GTS argent (eau)
-  { src: "/photos/gallery/dos-03.jpg", alt: "Porsche Boxster GTS — vue arrière, sélection NatioPark" },
-  { src: "/photos/gallery/avant-02.jpg", alt: "Porsche Boxster GTS — trois-quarts avant, sélection NatioPark" },
-  // Alfa Romeo Stelvio
-  { src: "/photos/gallery/dos-07.jpg", alt: "Alfa Romeo Stelvio — vue arrière, sélection NatioPark" },
-  { src: "/photos/gallery/avant-05.jpg", alt: "Alfa Romeo Stelvio — trois-quarts avant, sélection NatioPark" },
-  // Renault 21 Turbo
-  { src: "/photos/gallery/dos-r21.jpg", alt: "Renault 21 Turbo — vue arrière, sélection NatioPark" },
-  { src: "/photos/gallery/avant-r21.jpg", alt: "Renault 21 Turbo — trois-quarts avant, sélection NatioPark" },
-  // Aston Martin DB9
-  { src: "/photos/gallery/dos-db9.jpg", alt: "Aston Martin DB9 — vue arrière, sélection NatioPark" },
-  { src: "/photos/gallery/avant-db9.jpg", alt: "Aston Martin DB9 — trois-quarts avant, sélection NatioPark" },
-  // BMW X3 M Competition
-  { src: "/photos/gallery/dos-x3m.jpg", alt: "BMW X3 M Competition — vue arrière, sélection NatioPark" },
-  { src: "/photos/gallery/avant-x3m.jpg", alt: "BMW X3 M Competition — trois-quarts avant, sélection NatioPark" },
-  // Porsche 993 Carrera 4S argent
-  { src: "/photos/gallery/dos-993-c4s.jpg", alt: "Porsche 993 Carrera 4S — vue arrière, sélection NatioPark" },
-  { src: "/photos/gallery/avant-993-c4s.jpg", alt: "Porsche 993 Carrera 4S — trois-quarts avant, sélection NatioPark" },
-  // Porsche 996 Turbo argent
-  { src: "/photos/gallery/dos-996-turbo.jpg", alt: "Porsche 996 Turbo — face avant, sélection NatioPark" },
-  { src: "/photos/gallery/avant-996-turbo.jpg", alt: "Porsche 996 Turbo — trois-quarts avant, sélection NatioPark" },
-  // Porsche 911 Carrera S gris foncé
-  { src: "/photos/gallery/dos-carrera-s.jpg", alt: "Porsche 911 Carrera S — vue arrière, sélection NatioPark" },
-  { src: "/photos/gallery/avant-carrera-s.jpg", alt: "Porsche 911 Carrera S — profil / trois-quarts avant, sélection NatioPark" },
-  // Caterham Seven 7 argent / noir
-  { src: "/photos/gallery/dos-caterham-7.jpg", alt: "Caterham Seven 7 — vue arrière, sélection NatioPark" },
-  { src: "/photos/gallery/avant-caterham-7.jpg", alt: "Caterham Seven 7 — trois-quarts avant, sélection NatioPark" },
-  // Porsche 911 noire
-  { src: "/photos/gallery/dos-911-noir.jpg", alt: "Porsche 911 noire — vue arrière, sélection NatioPark" },
-  { src: "/photos/gallery/avant-911-noir.jpg", alt: "Porsche 911 noire — trois-quarts avant, sélection NatioPark" },
-  // Porsche Cayenne Coupe e-hybrid
-  { src: "/photos/gallery/dos-cayenne-ehybrid.jpg", alt: "Porsche Cayenne Coupe e-hybrid — vue arrière, sélection NatioPark" },
-  { src: "/photos/gallery/avant-cayenne-ehybrid.jpg", alt: "Porsche Cayenne Coupe e-hybrid — trois-quarts avant, sélection NatioPark" },
+export type GalleryShot = { src: string; alt: string };
+export type GalleryVehicle = {
+  id: string;
+  name: string;
+  rear: GalleryShot;
+  front: GalleryShot;
+  interior?: GalleryShot;
+};
+
+export const galleryVehicles: GalleryVehicle[] = [
+  {
+    id: "911-turbo-cabriolet",
+    name: "Porsche 911 Turbo Cabriolet",
+    rear: { src: "/photos/gallery/dos-02.jpg", alt: "Porsche 911 Turbo Cabriolet — vue arrière, sélection NatioPark" },
+    front: { src: "/photos/gallery/avant-09.jpg", alt: "Porsche 911 Turbo Cabriolet — trois-quarts avant, sélection NatioPark" },
+  },
+  {
+    id: "718-spyder-rs",
+    name: "Porsche 718 Spyder RS",
+    rear: { src: "/photos/gallery/dos-06.jpg", alt: "Porsche 718 Spyder RS — vue arrière, sélection NatioPark" },
+    front: { src: "/photos/gallery/avant-04.jpg", alt: "Porsche 718 Spyder RS — trois-quarts avant, sélection NatioPark" },
+  },
+  {
+    id: "911-turbo-s",
+    name: "Porsche 911 Turbo S",
+    rear: { src: "/photos/gallery/dos-991-turbo-s.jpg", alt: "Porsche 911 Turbo S — vue arrière, sélection NatioPark" },
+    front: { src: "/photos/gallery/avant-991-turbo-s.jpg", alt: "Porsche 911 Turbo S — trois-quarts avant, sélection NatioPark" },
+  },
+  {
+    id: "911-noire",
+    name: "Porsche 911 noire",
+    rear: { src: "/photos/gallery/dos-911-noir.jpg", alt: "Porsche 911 noire — vue arrière, sélection NatioPark" },
+    front: { src: "/photos/gallery/avant-911-noir.jpg", alt: "Porsche 911 noire — trois-quarts avant, sélection NatioPark" },
+  },
+  {
+    id: "718-spyder-bleu",
+    name: "Porsche 718 Spyder bleu",
+    rear: { src: "/photos/gallery/dos-04.jpg", alt: "Porsche 718 Spyder — vue arrière, sélection NatioPark" },
+    front: { src: "/photos/gallery/avant-spyder-bleu.jpg", alt: "Porsche 718 Spyder — trois-quarts avant, sélection NatioPark" },
+  },
+  {
+    id: "boxster-toit-rouge",
+    name: "Porsche Boxster toit rouge",
+    rear: { src: "/photos/gallery/dos-boxster-rouge.jpg", alt: "Porsche Boxster — vue arrière toit rouge, sélection NatioPark" },
+    front: { src: "/photos/gallery/avant-boxster-rouge.jpg", alt: "Porsche Boxster — trois-quarts avant intérieur rouge, sélection NatioPark" },
+  },
+  {
+    id: "caterham-seven-7",
+    name: "Caterham Seven 7",
+    rear: { src: "/photos/gallery/dos-caterham-7.jpg", alt: "Caterham Seven 7 — vue arrière, sélection NatioPark" },
+    front: { src: "/photos/gallery/avant-caterham-7.jpg", alt: "Caterham Seven 7 — trois-quarts avant, sélection NatioPark" },
+  },
+  {
+    id: "alpine-a110",
+    name: "Alpine A110",
+    rear: { src: "/photos/gallery/dos-10.jpg", alt: "Alpine A110 — vue arrière, sélection NatioPark" },
+    front: { src: "/photos/gallery/avant-10.jpg", alt: "Alpine A110 — trois-quarts avant, sélection NatioPark" },
+  },
+  {
+    id: "boxster-gts",
+    name: "Porsche Boxster GTS",
+    rear: { src: "/photos/gallery/dos-03.jpg", alt: "Porsche Boxster GTS — vue arrière, sélection NatioPark" },
+    front: { src: "/photos/gallery/avant-02.jpg", alt: "Porsche Boxster GTS — trois-quarts avant, sélection NatioPark" },
+  },
+  {
+    id: "alfa-stelvio",
+    name: "Alfa Romeo Stelvio",
+    rear: { src: "/photos/gallery/dos-07.jpg", alt: "Alfa Romeo Stelvio — vue arrière, sélection NatioPark" },
+    front: { src: "/photos/gallery/avant-05.jpg", alt: "Alfa Romeo Stelvio — trois-quarts avant, sélection NatioPark" },
+  },
+  {
+    id: "renault-21-turbo",
+    name: "Renault 21 Turbo",
+    rear: { src: "/photos/gallery/dos-r21.jpg", alt: "Renault 21 Turbo — vue arrière, sélection NatioPark" },
+    front: { src: "/photos/gallery/avant-r21.jpg", alt: "Renault 21 Turbo — trois-quarts avant, sélection NatioPark" },
+  },
+  {
+    id: "aston-martin-db9",
+    name: "Aston Martin DB9",
+    rear: { src: "/photos/gallery/dos-db9.jpg", alt: "Aston Martin DB9 — vue arrière, sélection NatioPark" },
+    front: { src: "/photos/gallery/avant-db9.jpg", alt: "Aston Martin DB9 — trois-quarts avant, sélection NatioPark" },
+    // intentionally no interior
+  },
+  {
+    id: "bmw-x3-m",
+    name: "BMW X3 M",
+    rear: { src: "/photos/gallery/dos-x3m.jpg", alt: "BMW X3 M Competition — vue arrière, sélection NatioPark" },
+    front: { src: "/photos/gallery/avant-x3m.jpg", alt: "BMW X3 M Competition — trois-quarts avant, sélection NatioPark" },
+  },
+  {
+    id: "993-carrera-4s",
+    name: "Porsche 993 Carrera 4S",
+    rear: { src: "/photos/gallery/dos-993-c4s.jpg", alt: "Porsche 993 Carrera 4S — vue arrière, sélection NatioPark" },
+    front: { src: "/photos/gallery/avant-993-c4s.jpg", alt: "Porsche 993 Carrera 4S — trois-quarts avant, sélection NatioPark" },
+    // intentionally no interior
+  },
+  {
+    id: "996-turbo",
+    name: "Porsche 996 Turbo",
+    rear: { src: "/photos/gallery/dos-996-turbo.jpg", alt: "Porsche 996 Turbo — face avant, sélection NatioPark" },
+    front: { src: "/photos/gallery/avant-996-turbo.jpg", alt: "Porsche 996 Turbo — trois-quarts avant, sélection NatioPark" },
+  },
+  {
+    id: "911-carrera-s",
+    name: "Porsche 911 Carrera S",
+    rear: { src: "/photos/gallery/dos-carrera-s.jpg", alt: "Porsche 911 Carrera S — vue arrière, sélection NatioPark" },
+    front: { src: "/photos/gallery/avant-carrera-s.jpg", alt: "Porsche 911 Carrera S — profil / trois-quarts avant, sélection NatioPark" },
+  },
+  {
+    id: "cayenne-coupe-ehybrid",
+    name: "Porsche Cayenne Coupe e-hybrid",
+    rear: { src: "/photos/gallery/dos-cayenne-ehybrid.jpg", alt: "Porsche Cayenne Coupe e-hybrid — vue arrière, sélection NatioPark" },
+    front: { src: "/photos/gallery/avant-cayenne-ehybrid.jpg", alt: "Porsche Cayenne Coupe e-hybrid — trois-quarts avant, sélection NatioPark" },
+  },
 ];
+
+/** Flat list of all gallery shots for lightbox navigation */
+export const vehicles = galleryVehicles.flatMap((v) =>
+  [v.rear, v.front, ...(v.interior ? [v.interior] : [])],
+);
