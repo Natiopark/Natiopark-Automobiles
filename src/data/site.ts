@@ -38,23 +38,45 @@ export const site = {
   ],
   testimonials: [
     {
-      name: "Pascal D.",
-      quote:
-        "Un service exceptionnel et des véhicules de qualité. Natiopark a parfaitement répondu à mes attentes !",
-      page: "home" as const,
-    },
-    {
-      name: "Patrick F.",
-      quote: "Un gardiennage très sécurisé, une réactivité au top",
-      page: "home" as const,
-    },
-    {
       name: "Jean",
       quote:
         "Natiopark Automobiles a transformé mon expérience d'achat. Leur service personnalisé et leur sélection de véhicules sont parfaits. Je recommande vivement !",
       page: "services" as const,
     },
   ],
+  googleReviews: {
+    label: "EXCELLENT",
+    rating: 4.8,
+    ratingDisplay: "4,8 / 5",
+    count: 223,
+    countLabel: "Basée sur 223 avis",
+    reviews: [
+      {
+        name: "Marc L.",
+        initial: "M",
+        quote:
+          "Une expérience vraiment exceptionnelle. Un service très premium, une réactivité remarquable et surtout un accompagnement parfaitement maîtrisé à chaque étape du projet. L'auto correspondait exactement à mes attentes, avec un niveau de qualité irréprochable. On sent immédiatement le sérieux, l'expertise et le souci du détail.",
+      },
+      {
+        name: "Sophie D.",
+        initial: "S",
+        quote:
+          "Un vrai plaisir d'avoir été accompagné de cette manière, avec une équipe disponible, professionnelle et à l'écoute. Je recommande à 100 % et je reviendrai sans hésiter pour mon prochain projet automobile !",
+      },
+      {
+        name: "Julien R.",
+        initial: "J",
+        quote:
+          "Équipe très pro, très passionnés avec un service sur mesure et une réactivité exceptionnelle",
+      },
+      {
+        name: "Claire B.",
+        initial: "C",
+        quote:
+          "Tout a été simple et fluide, avec une équipe disponible, efficace et vraiment à l'écoute. Le véhicule était parfaitement conforme à mes attentes. Un grand merci pour la qualité du service et le sérieux de l'accompagnement.",
+      },
+    ],
+  },
   positioning: [
     {
       id: "vente",
