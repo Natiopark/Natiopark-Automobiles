@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 import {
   useMotionValueEvent,
   useReducedMotion,
@@ -9,17 +9,21 @@ import {
 
 type Props = {
   src?: string;
+  children?: ReactNode;
 };
 
 /**
- * Tall scroll section: sticky full-bleed video scrubbed by scroll progress.
+ * Hero bandeau: tall scroll track with sticky full-bleed video scrubbed by
+ * scroll progress. Children render as the title block over light overlays.
  * Falls back to a mid-frame still when prefers-reduced-motion.
  */
 export function ServicesScrollVideo({
   src = "/videos/services-scroll.mp4",
+  children,
 }: Props) {
   const containerRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const progressRef = useRef(0);
   const reduce = useReducedMotion();
 
   const { scrollYProgress } = useScroll({
@@ -27,26 +31,94 @@ export function ServicesScrollVideo({
     offset: ["start start", "end end"],
   });
 
-  useMotionValueEvent(scrollYProgress, "change", (progress) => {
-    if (reduce) return;
+  const scrubTo = (progress: number) => {
     const video = videoRef.current;
     if (!video || !Number.isFinite(video.duration) || video.duration <= 0) return;
     const t = Math.min(Math.max(progress, 0), 1) * video.duration;
     if (Math.abs(video.currentTime - t) > 0.01) {
-      video.currentTime = t;
+      try {
+        video.currentTime = t;
+      } catch {
+        /* seek may fail before enough data */
+      }
     }
+  };
+
+  useMotionValueEvent(scrollYProgress, "change", (progress) => {
+    progressRef.current = progress;
+    if (reduce) return;
+    scrubTo(progress);
   });
 
-  // Mid-frame still for reduced motion
+  // Safari unlock + rAF scroll backup for reliable seeking
+  useEffect(() => {
+    const video = videoRef.current;
+    const container = containerRef.current;
+    if (!video || !container) return;
+
+    const unlock = () => {
+      video.muted = true;
+      void video
+        .play()
+        .then(() => {
+          video.pause();
+        })
+        .catch(() => {});
+      if (reduce) {
+        if (Number.isFinite(video.duration) && video.duration > 0) {
+          video.currentTime = video.duration * 0.45;
+        }
+      } else {
+        video.currentTime = 0;
+        scrubTo(progressRef.current);
+      }
+    };
+
+    if (video.readyState >= 1) unlock();
+    else video.addEventListener("loadedmetadata", unlock, { once: true });
+
+    if (reduce) {
+      return () => video.removeEventListener("loadedmetadata", unlock);
+    }
+
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const rect = container.getBoundingClientRect();
+        const total = container.offsetHeight - window.innerHeight;
+        if (total <= 0) return;
+        const p = Math.min(Math.max(-rect.top / total, 0), 1);
+        progressRef.current = p;
+        scrubTo(p);
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    return () => {
+      video.removeEventListener("loadedmetadata", unlock);
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, [reduce]);
+
   const onLoadedMetadata = () => {
     const video = videoRef.current;
     if (!video || !Number.isFinite(video.duration) || video.duration <= 0) return;
+    video.muted = true;
+    void video
+      .play()
+      .then(() => {
+        video.pause();
+      })
+      .catch(() => {});
     if (reduce) {
-      video.pause();
       video.currentTime = video.duration * 0.45;
     } else {
-      video.pause();
       video.currentTime = 0;
+      scrubTo(progressRef.current);
     }
   };
 
@@ -55,10 +127,10 @@ export function ServicesScrollVideo({
       ref={containerRef}
       className={
         reduce
-          ? "relative h-[100svh] min-h-[420px] w-full bg-[#07080a]"
-          : "relative h-[240svh] w-full bg-[#07080a]"
+          ? "relative min-h-[100svh] w-full bg-[#07080a]"
+          : "relative h-[220svh] w-full bg-[#07080a]"
       }
-      aria-label="Showreel NatioPark Automobiles"
+      aria-label="Services NatioPark Automobiles"
     >
       <div className="sticky top-0 h-[100svh] w-full overflow-hidden">
         <video
@@ -72,24 +144,21 @@ export function ServicesScrollVideo({
           aria-hidden
         />
 
-        <div className="hero-scrim pointer-events-none absolute inset-0 opacity-40" />
+        {/* Light overlays — same stack as SectionPhotoBg `light` */}
+        <div className="hero-scrim pointer-events-none absolute inset-0" />
         <div className="hero-vignette pointer-events-none absolute inset-0" />
+        <div className="hero-aurora pointer-events-none absolute inset-0" />
         <div
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(7,8,10,0.5) 0%, transparent 28%, transparent 72%, rgba(7,8,10,0.65) 100%)",
+              "linear-gradient(180deg, rgba(7,8,10,0.35) 0%, rgba(7,8,10,0.18) 42%, rgba(7,8,10,0.45) 100%)",
           }}
         />
 
-        <div className="pointer-events-none absolute inset-x-0 bottom-10 z-10 flex justify-center px-6">
-          <p
-            className="eyebrow tracking-[0.28em] text-platinum/55"
-            style={{ fontFamily: "Verdana, Geneva, sans-serif" }}
-          >
-            NatioPark
-          </p>
-        </div>
+        {children ? (
+          <div className="relative z-10 h-full w-full">{children}</div>
+        ) : null}
       </div>
     </section>
   );

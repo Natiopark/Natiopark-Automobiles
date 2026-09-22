@@ -17,29 +17,22 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <SectionPhotoBg
-        src="/photos/bg-911-turbo-rear.jpg"
-        alt="Porsche 911 Turbo S — vue arrière trois-quarts"
-        priority
-        light
-        objectPosition="center 40%"
-        className="section-pad flex min-h-[100svh] flex-col justify-center pt-24 pb-24 md:pt-28 md:pb-32"
-      >
-        <div className="mx-auto w-full max-w-7xl -translate-y-20 md:-translate-y-28">
-          <Reveal>
-            <h1 className="display max-w-3xl text-[clamp(1.75rem,3.4vw,2.75rem)] text-platinum">
-              Un accompagnement{" "}
-              <span className="text-[#c9a227]">transversal</span>{" "}
-              pour tous vos projets automobiles
-            </h1>
-            <p className="mt-12 max-w-2xl text-base leading-relaxed text-silver/90 md:mt-14">
-              De la recherche à l&apos;acquisition, jusqu&apos;à l&apos;entretien et à la conservation de votre véhicule, chaque prestation est pensée dans les moindres détails pour vous offrir un accompagnement sur mesure, discret et exigeant.
-            </p>
-          </Reveal>
+      <ServicesScrollVideo>
+        <div className="section-pad flex h-[100svh] flex-col justify-center pt-24 pb-24 md:pt-28 md:pb-32">
+          <div className="mx-auto w-full max-w-7xl -translate-y-20 md:-translate-y-28">
+            <Reveal>
+              <h1 className="display max-w-3xl text-[clamp(1.75rem,3.4vw,2.75rem)] text-platinum">
+                Un accompagnement{" "}
+                <span className="text-[#c9a227]">transversal</span>{" "}
+                pour tous vos projets automobiles
+              </h1>
+              <p className="mt-12 max-w-2xl text-base leading-relaxed text-silver/90 md:mt-14">
+                De la recherche à l&apos;acquisition, jusqu&apos;à l&apos;entretien et à la conservation de votre véhicule, chaque prestation est pensée dans les moindres détails pour vous offrir un accompagnement sur mesure, discret et exigeant.
+              </p>
+            </Reveal>
+          </div>
         </div>
-      </SectionPhotoBg>
-
-      <ServicesScrollVideo />
+      </ServicesScrollVideo>
 
       <SectionPhotoBg
         src="/photos/bg-718-spyder-natiopark.jpg"
