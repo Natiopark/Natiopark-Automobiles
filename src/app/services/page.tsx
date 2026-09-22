@@ -26,7 +26,6 @@ export default function ServicesPage() {
       >
         <div className="mx-auto w-full max-w-7xl -translate-y-20 md:-translate-y-28">
           <Reveal>
-            <p className="eyebrow mb-4">Services</p>
             <h1 className="display max-w-3xl text-[clamp(1.75rem,3.4vw,2.75rem)] text-platinum">
               Un accompagnement{" "}
               <span className="text-[#c9a227]">transversal</span>{" "}
