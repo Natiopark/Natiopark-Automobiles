@@ -5,6 +5,7 @@ import { GoogleReviews } from "@/components/GoogleReviews";
 import { MagneticButton } from "@/components/MagneticButton";
 import { StatsStrip } from "@/components/StatsStrip";
 import { SectionPhotoBg } from "@/components/SectionPhotoBg";
+import { ServicesScrollVideo } from "@/components/ServicesScrollVideo";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -37,6 +38,8 @@ export default function ServicesPage() {
           </Reveal>
         </div>
       </SectionPhotoBg>
+
+      <ServicesScrollVideo />
 
       <SectionPhotoBg
         src="/photos/bg-718-spyder-natiopark.jpg"
