@@ -192,6 +192,7 @@ export const galleryVehicles: GalleryVehicle[] = [
     name: "Porsche 911 noire",
     rear: { src: "/photos/gallery/dos-911-noir.jpg", alt: "Porsche 911 noire — vue arrière, sélection NatioPark" },
     front: { src: "/photos/gallery/avant-911-noir.jpg", alt: "Porsche 911 noire — trois-quarts avant, sélection NatioPark" },
+    interior: { src: "/photos/gallery/int-911-noir.jpg", alt: "Porsche 911 noire — habitacle, sélection NatioPark" },
   },
   {
     id: "718-spyder-bleu",
@@ -210,6 +211,7 @@ export const galleryVehicles: GalleryVehicle[] = [
     name: "Caterham Seven 7",
     rear: { src: "/photos/gallery/dos-caterham-7.jpg", alt: "Caterham Seven 7 — vue arrière, sélection NatioPark" },
     front: { src: "/photos/gallery/avant-caterham-7.jpg", alt: "Caterham Seven 7 — trois-quarts avant, sélection NatioPark" },
+    interior: { src: "/photos/gallery/int-caterham-7.jpg", alt: "Caterham Seven 7 — habitacle, sélection NatioPark" },
   },
   {
     id: "alpine-a110",
@@ -260,6 +262,7 @@ export const galleryVehicles: GalleryVehicle[] = [
     name: "Porsche 996 Turbo",
     rear: { src: "/photos/gallery/dos-996-turbo.jpg", alt: "Porsche 996 Turbo — face avant, sélection NatioPark" },
     front: { src: "/photos/gallery/avant-996-turbo.jpg", alt: "Porsche 996 Turbo — trois-quarts avant, sélection NatioPark" },
+    interior: { src: "/photos/gallery/int-996-turbo.jpg", alt: "Porsche 996 Turbo — habitacle cuir vert, sélection NatioPark" },
   },
   {
     id: "911-carrera-s",
