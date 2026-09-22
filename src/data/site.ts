@@ -202,4 +202,13 @@ export const vehicles = [
   // Porsche 911 Carrera S gris foncé
   { src: "/photos/gallery/dos-carrera-s.jpg", alt: "Porsche 911 Carrera S — vue arrière, sélection NatioPark" },
   { src: "/photos/gallery/avant-carrera-s.jpg", alt: "Porsche 911 Carrera S — profil / trois-quarts avant, sélection NatioPark" },
+  // Caterham Seven 7 argent / noir
+  { src: "/photos/gallery/dos-caterham-7.jpg", alt: "Caterham Seven 7 — vue arrière, sélection NatioPark" },
+  { src: "/photos/gallery/avant-caterham-7.jpg", alt: "Caterham Seven 7 — trois-quarts avant, sélection NatioPark" },
+  // Porsche 911 noire
+  { src: "/photos/gallery/dos-911-noir.jpg", alt: "Porsche 911 noire — vue arrière, sélection NatioPark" },
+  { src: "/photos/gallery/avant-911-noir.jpg", alt: "Porsche 911 noire — trois-quarts avant, sélection NatioPark" },
+  // Porsche Cayenne Coupe e-hybrid
+  { src: "/photos/gallery/dos-cayenne-ehybrid.jpg", alt: "Porsche Cayenne Coupe e-hybrid — vue arrière, sélection NatioPark" },
+  { src: "/photos/gallery/avant-cayenne-ehybrid.jpg", alt: "Porsche Cayenne Coupe e-hybrid — trois-quarts avant, sélection NatioPark" },
 ];
