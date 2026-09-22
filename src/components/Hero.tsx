@@ -45,7 +45,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-          className="display max-w-4xl text-[clamp(2.75rem,8vw,6.5rem)] text-platinum"
+          className="display max-w-4xl text-[clamp(2.4rem,7vw,5.5rem)] text-platinum"
         >
           NatioPark
           <span className="block text-metallic">Automobiles</span>
