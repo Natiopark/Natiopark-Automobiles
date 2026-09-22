@@ -31,8 +31,7 @@ export default function ServicesPage() {
               Un accompagnement transversal pour tous vos projets automobiles
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-silver/90">
-              De l&apos;acquisition à l&apos;entretien, chaque mission est menée
-              avec la discrétion et la précision d&apos;une maison de confiance.
+              De la recherche à l&apos;acquisition, jusqu&apos;à l&apos;entretien et à la conservation de votre véhicule, chaque prestation est pensée dans les moindres détails pour vous offrir un accompagnement sur mesure, discret et exigeant.
             </p>
           </Reveal>
         </div>
