@@ -42,18 +42,23 @@ export function VehicleGallery() {
       {/* 3 cols: rear | front | interior (optional) — smaller tiles */}
       <div className="mx-auto flex max-w-3xl flex-col gap-1.5">
         {galleryVehicles.map((vehicle) => {
-          const shots = [
-            vehicle.rear,
-            vehicle.front,
-            ...(vehicle.interior ? [vehicle.interior] : []),
-          ];
+          const shots = [vehicle.rear, vehicle.front, vehicle.interior ?? null];
           return (
             <div
               key={vehicle.id}
               className="grid grid-cols-3 gap-1.5"
               aria-label={vehicle.name}
             >
-              {shots.map((shot) => {
+              {shots.map((shot, slot) => {
+                if (!shot) {
+                  return (
+                    <div
+                      key={`${vehicle.id}-empty-${slot}`}
+                      className="aspect-[5/4] w-full rounded-sm border border-dashed border-white/10 bg-white/[0.02]"
+                      aria-hidden
+                    />
+                  );
+                }
                 const index = flatIndex.get(shot.src) ?? 0;
                 return (
                   <button
