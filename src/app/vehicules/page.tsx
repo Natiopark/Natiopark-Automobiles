@@ -16,8 +16,7 @@ export default function VehiculesPage() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(45,90,69,0.2),transparent_55%)]" />
         <div className="relative mx-auto max-w-7xl">
           <Reveal>
-            <p className="eyebrow mb-4">Sélection</p>
-            <h1 className="display max-w-4xl text-[clamp(2.5rem,6vw,5rem)] text-platinum">
+            <h1 className="display max-w-4xl text-[clamp(2.25rem,5vw,4rem)] text-platinum">
               Une sélection de nos véhicules
             </h1>
           </Reveal>

@@ -158,27 +158,30 @@ export const site = {
 };
 
 export const vehicles = [
-  // Porsche 718 Spyder bleu
-  { src: "/photos/gallery/dos-04.jpg", alt: "Porsche 718 Spyder — vue arrière, sélection NatioPark" },
-  { src: "/photos/gallery/avant-spyder-bleu.jpg", alt: "Porsche 718 Spyder — trois-quarts avant, sélection NatioPark" },
-  // Alpine A110 bleu
-  { src: "/photos/gallery/dos-10.jpg", alt: "Alpine A110 — vue arrière, sélection NatioPark" },
-  { src: "/photos/gallery/avant-10.jpg", alt: "Alpine A110 — trois-quarts avant, sélection NatioPark" },
   // Porsche 911 Turbo Cabriolet gris / intérieur rouge
   { src: "/photos/gallery/dos-02.jpg", alt: "Porsche 911 Turbo Cabriolet — vue arrière, sélection NatioPark" },
   { src: "/photos/gallery/avant-09.jpg", alt: "Porsche 911 Turbo Cabriolet — trois-quarts avant, sélection NatioPark" },
-  // Porsche Boxster GTS argent (eau)
-  { src: "/photos/gallery/dos-03.jpg", alt: "Porsche Boxster GTS — vue arrière, sélection NatioPark" },
-  { src: "/photos/gallery/avant-02.jpg", alt: "Porsche Boxster GTS — trois-quarts avant, sélection NatioPark" },
   // Porsche 718 Spyder RS gris
   { src: "/photos/gallery/dos-06.jpg", alt: "Porsche 718 Spyder RS — vue arrière, sélection NatioPark" },
   { src: "/photos/gallery/avant-04.jpg", alt: "Porsche 718 Spyder RS — trois-quarts avant, sélection NatioPark" },
-  // Alfa Romeo Stelvio
-  { src: "/photos/gallery/dos-07.jpg", alt: "Alfa Romeo Stelvio — vue arrière, sélection NatioPark" },
-  { src: "/photos/gallery/avant-05.jpg", alt: "Alfa Romeo Stelvio — trois-quarts avant, sélection NatioPark" },
   // Porsche 911 Turbo S chalk/gris
   { src: "/photos/gallery/dos-991-turbo-s.jpg", alt: "Porsche 911 Turbo S — vue arrière, sélection NatioPark" },
   { src: "/photos/gallery/avant-991-turbo-s.jpg", alt: "Porsche 911 Turbo S — trois-quarts avant, sélection NatioPark" },
+  // Porsche 718 Spyder bleu
+  { src: "/photos/gallery/dos-04.jpg", alt: "Porsche 718 Spyder — vue arrière, sélection NatioPark" },
+  { src: "/photos/gallery/avant-spyder-bleu.jpg", alt: "Porsche 718 Spyder — trois-quarts avant, sélection NatioPark" },
+  // Porsche Boxster argent / toit et intérieur rouge
+  { src: "/photos/gallery/dos-boxster-rouge.jpg", alt: "Porsche Boxster — vue arrière toit rouge, sélection NatioPark" },
+  { src: "/photos/gallery/avant-boxster-rouge.jpg", alt: "Porsche Boxster — trois-quarts avant intérieur rouge, sélection NatioPark" },
+  // Alpine A110 bleu
+  { src: "/photos/gallery/dos-10.jpg", alt: "Alpine A110 — vue arrière, sélection NatioPark" },
+  { src: "/photos/gallery/avant-10.jpg", alt: "Alpine A110 — trois-quarts avant, sélection NatioPark" },
+  // Porsche Boxster GTS argent (eau)
+  { src: "/photos/gallery/dos-03.jpg", alt: "Porsche Boxster GTS — vue arrière, sélection NatioPark" },
+  { src: "/photos/gallery/avant-02.jpg", alt: "Porsche Boxster GTS — trois-quarts avant, sélection NatioPark" },
+  // Alfa Romeo Stelvio
+  { src: "/photos/gallery/dos-07.jpg", alt: "Alfa Romeo Stelvio — vue arrière, sélection NatioPark" },
+  { src: "/photos/gallery/avant-05.jpg", alt: "Alfa Romeo Stelvio — trois-quarts avant, sélection NatioPark" },
   // Renault 21 Turbo
   { src: "/photos/gallery/dos-r21.jpg", alt: "Renault 21 Turbo — vue arrière, sélection NatioPark" },
   { src: "/photos/gallery/avant-r21.jpg", alt: "Renault 21 Turbo — trois-quarts avant, sélection NatioPark" },
@@ -188,9 +191,6 @@ export const vehicles = [
   // BMW X3 M Competition
   { src: "/photos/gallery/dos-x3m.jpg", alt: "BMW X3 M Competition — vue arrière, sélection NatioPark" },
   { src: "/photos/gallery/avant-x3m.jpg", alt: "BMW X3 M Competition — trois-quarts avant, sélection NatioPark" },
-  // Porsche Boxster argent / toit et intérieur rouge
-  { src: "/photos/gallery/dos-boxster-rouge.jpg", alt: "Porsche Boxster — vue arrière toit rouge, sélection NatioPark" },
-  { src: "/photos/gallery/avant-boxster-rouge.jpg", alt: "Porsche Boxster — trois-quarts avant intérieur rouge, sélection NatioPark" },
   // Porsche 993 Carrera 4S argent
   { src: "/photos/gallery/dos-993-c4s.jpg", alt: "Porsche 993 Carrera 4S — vue arrière, sélection NatioPark" },
   { src: "/photos/gallery/avant-993-c4s.jpg", alt: "Porsche 993 Carrera 4S — trois-quarts avant, sélection NatioPark" },
