@@ -5,21 +5,19 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Reveal } from "./Reveal";
 
 const services = [
-  { id: "achat-vente", label: "Achat & vente", short: "Achat/vente", icon: "handshake" as const },
-  { id: "detailing", label: "Detailing", short: "Detailing", icon: "sparkle" as const },
-  { id: "transport", label: "Transport", short: "Transport", icon: "truck" as const },
-  { id: "siv", label: "SIV", short: "SIV", icon: "doc" as const },
-  { id: "financement", label: "Financement", short: "Financement", icon: "coins" as const },
-  { id: "entretien", label: "Entretien", short: "Entretien", icon: "wrench" as const },
+  { id: "achat-vente", label: "Achats et vente", short: "Achats/vente", icon: "handshake" as const },
+  { id: "detailing-ppf", label: "Détailling PPF", short: "Detailing PPF", icon: "sparkle" as const },
+  { id: "transport", label: "Transport sécurisé", short: "Transport", icon: "truck" as const },
+  { id: "entretien", label: "Entretien restauration", short: "Entretien", icon: "wrench" as const },
   { id: "conciergerie", label: "Conciergerie", short: "Conciergerie", icon: "bell" as const },
-  { id: "carrosserie", label: "Carrosserie", short: "Carrosserie", icon: "panel" as const },
+  { id: "siv", label: "SIV", short: "SIV", icon: "doc" as const },
 ];
 
 type IconName = (typeof services)[number]["icon"];
 
 function ServiceMiniIcon({ name }: { name: IconName }) {
   const props = {
-    className: "h-8 w-8 text-accent",
+    className: "h-7 w-7 text-accent",
     viewBox: "0 0 48 48",
     fill: "none",
     stroke: "currentColor",
@@ -67,16 +65,6 @@ function ServiceMiniIcon({ name }: { name: IconName }) {
           <circle cx="18" cy="22" r="1.2" fill="currentColor" stroke="none" />
         </svg>
       );
-    case "coins":
-      return (
-        <svg {...props}>
-          <ellipse cx="20" cy="18" rx="10" ry="6" />
-          <path d="M10 18 V28 C10 31.3 14.5 34 20 34 S30 31.3 30 28 V18" />
-          <path d="M10 23 C10 26.3 14.5 29 20 29 S30 26.3 30 23" />
-          <ellipse cx="30" cy="22" rx="8" ry="5" opacity="0.75" />
-          <path d="M22 22 V30 C22 32.8 25.6 35 30 35 S38 32.8 38 30 V22" opacity="0.75" />
-        </svg>
-      );
     case "wrench":
       return (
         <svg {...props}>
@@ -93,18 +81,6 @@ function ServiceMiniIcon({ name }: { name: IconName }) {
           <path d="M16 20 C16 15 19 12 24 12 S32 15 32 20 V28 L36 32 H12 L16 28 Z" />
           <path d="M20 32 C20 35 22 37 24 37 S28 35 28 32" />
           <circle cx="34" cy="16" r="3" opacity="0.55" />
-        </svg>
-      );
-    case "panel":
-      return (
-        <svg {...props}>
-          {/* Car body / panel schema */}
-          <path d="M8 28 C10 22 14 18 20 16 L30 16 C36 18 40 22 42 28" />
-          <path d="M8 28 H42 V32 H8 Z" />
-          <path d="M16 16 L18 22 H28 L30 16" opacity="0.65" />
-          <circle cx="16" cy="32" r="3" />
-          <circle cx="34" cy="32" r="3" />
-          <path d="M22 24 H26" opacity="0.5" />
         </svg>
       );
     default:
@@ -146,17 +122,17 @@ function ServiceChip({
       }
       whileTap={{ scale: 0.98 }}
       style={{ transformStyle: "preserve-3d", transformPerspective: 900 }}
-      className="glass sheen group relative flex w-full flex-col items-start gap-3 overflow-hidden rounded-sm border border-white/8 px-4 py-4 text-left shadow-[0_8px_28px_rgba(0,0,0,0.28)] transition-[border-color,background] duration-300 hover:border-accent/35 hover:bg-white/[0.04]"
+      className="glass sheen group relative flex w-full flex-col items-start gap-2 overflow-hidden rounded-sm border border-white/8 px-3 py-3 text-left shadow-[0_8px_28px_rgba(0,0,0,0.28)] transition-[border-color,background] duration-300 hover:border-accent/35 hover:bg-white/[0.04]"
     >
       <div className="pointer-events-none absolute -right-6 -top-6 h-16 w-16 rounded-full bg-forest-mid/20 blur-2xl transition-opacity group-hover:opacity-100" />
       <div
-        className="flex h-11 w-11 items-center justify-center rounded-sm border border-white/10 bg-charcoal-deep/60"
+        className="flex h-9 w-9 items-center justify-center rounded-sm border border-white/10 bg-charcoal-deep/60"
         style={{ transform: "translateZ(16px)" }}
       >
         <ServiceMiniIcon name={service.icon} />
       </div>
       <span
-        className="text-sm font-medium tracking-wide text-platinum transition-colors duration-300 group-hover:text-[#c9a227]"
+        className="text-[0.8rem] font-medium tracking-wide text-platinum transition-colors duration-300 group-hover:text-[#c9a227]"
         style={{ transform: "translateZ(12px)" }}
       >
         {service.label}
@@ -215,16 +191,16 @@ export function ServiceOrbitInfographic() {
           <p className="mt-5 max-w-2xl text-sm leading-relaxed text-silver/85 md:text-base">
             Chaque projet bénéficie d&apos;un accompagnement sur mesure, avec
             l&apos;ensemble des services réunis au sein d&apos;un même écosystème :
-            achat &amp; vente, detailing, transport, immatriculation (SIV),
-            financement, entretien, conciergerie et carrosserie. Un interlocuteur
-            unique pour une coordination fluide.
+            achats et vente, détailling PPF, transport sécurisé, entretien
+            restauration, conciergerie et SIV. Un interlocuteur unique pour une
+            coordination fluide.
           </p>
         </Reveal>
 
         {/* Buttons + orbit: orbit vertically centered on the button grid */}
         <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-12">
           <div
-            className="grid grid-cols-2 gap-3 md:gap-4"
+            className="grid grid-cols-2 gap-2.5 md:gap-3"
             style={{ perspective: reduce ? undefined : 1000 }}
           >
             {services.map((s, i) => (
@@ -377,7 +353,7 @@ export function ServiceOrbitInfographic() {
                     y={ly}
                     textAnchor="middle"
                     fill="#e8e6e3"
-                    fontSize="10"
+                    fontSize="9"
                     fontFamily="Verdana, Geneva, sans-serif"
                   >
                     {s.short}
