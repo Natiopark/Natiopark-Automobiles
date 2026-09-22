@@ -156,7 +156,7 @@ function ServiceChip({
         <ServiceMiniIcon name={service.icon} />
       </div>
       <span
-        className="text-sm font-medium tracking-wide text-platinum"
+        className="text-sm font-medium tracking-wide text-platinum transition-colors duration-300 group-hover:text-[#c9a227]"
         style={{ transform: "translateZ(12px)" }}
       >
         {service.label}
