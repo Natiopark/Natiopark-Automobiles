@@ -158,24 +158,25 @@ export const site = {
 };
 
 export const vehicles = [
-  { src: "/photos/gallery/dos-01.jpg", alt: "Sélection NatioPark — vue arrière" },
-  { src: "/photos/gallery/avant-01.jpg", alt: "Sélection NatioPark — trois-quarts avant" },
-  { src: "/photos/gallery/dos-02.jpg", alt: "Sélection NatioPark — vue arrière" },
-  { src: "/photos/gallery/avant-02.jpg", alt: "Sélection NatioPark — trois-quarts avant" },
-  { src: "/photos/gallery/dos-03.jpg", alt: "Sélection NatioPark — vue arrière" },
-  { src: "/photos/gallery/avant-03.jpg", alt: "Sélection NatioPark — trois-quarts avant" },
-  { src: "/photos/gallery/dos-04.jpg", alt: "Sélection NatioPark — vue arrière" },
-  { src: "/photos/gallery/avant-04.jpg", alt: "Sélection NatioPark — trois-quarts avant" },
-  { src: "/photos/gallery/dos-05.jpg", alt: "Sélection NatioPark — vue arrière" },
-  { src: "/photos/gallery/avant-05.jpg", alt: "Sélection NatioPark — trois-quarts avant" },
-  { src: "/photos/gallery/dos-06.jpg", alt: "Sélection NatioPark — vue arrière" },
-  { src: "/photos/gallery/avant-06.jpg", alt: "Sélection NatioPark — trois-quarts avant" },
-  { src: "/photos/gallery/dos-07.jpg", alt: "Sélection NatioPark — vue arrière" },
-  { src: "/photos/gallery/avant-07.jpg", alt: "Sélection NatioPark — trois-quarts avant" },
-  { src: "/photos/gallery/dos-08.jpg", alt: "Sélection NatioPark — vue arrière" },
-  { src: "/photos/gallery/avant-08.jpg", alt: "Sélection NatioPark — trois-quarts avant" },
-  { src: "/photos/gallery/dos-09.jpg", alt: "Sélection NatioPark — vue arrière" },
-  { src: "/photos/gallery/avant-09.jpg", alt: "Sélection NatioPark — trois-quarts avant" },
-  { src: "/photos/gallery/dos-10.jpg", alt: "Sélection NatioPark — vue arrière" },
-  { src: "/photos/gallery/avant-10.jpg", alt: "Sélection NatioPark — trois-quarts avant" },
+  // Porsche 718 Spyder bleu
+  { src: "/photos/gallery/dos-04.jpg", alt: "Porsche 718 Spyder — vue arrière, sélection NatioPark" },
+  { src: "/photos/gallery/avant-spyder-bleu.jpg", alt: "Porsche 718 Spyder — trois-quarts avant, sélection NatioPark" },
+  // Alpine A110 bleu
+  { src: "/photos/gallery/dos-10.jpg", alt: "Alpine A110 — vue arrière, sélection NatioPark" },
+  { src: "/photos/gallery/avant-10.jpg", alt: "Alpine A110 — trois-quarts avant, sélection NatioPark" },
+  // Porsche 911 Turbo Cabriolet gris / intérieur rouge
+  { src: "/photos/gallery/dos-02.jpg", alt: "Porsche 911 Turbo Cabriolet — vue arrière, sélection NatioPark" },
+  { src: "/photos/gallery/avant-09.jpg", alt: "Porsche 911 Turbo Cabriolet — trois-quarts avant, sélection NatioPark" },
+  // Porsche Boxster GTS argent (eau)
+  { src: "/photos/gallery/dos-03.jpg", alt: "Porsche Boxster GTS — vue arrière, sélection NatioPark" },
+  { src: "/photos/gallery/avant-02.jpg", alt: "Porsche Boxster GTS — trois-quarts avant, sélection NatioPark" },
+  // Porsche 718 Spyder RS gris
+  { src: "/photos/gallery/dos-06.jpg", alt: "Porsche 718 Spyder RS — vue arrière, sélection NatioPark" },
+  { src: "/photos/gallery/avant-04.jpg", alt: "Porsche 718 Spyder RS — trois-quarts avant, sélection NatioPark" },
+  // Alfa Romeo Stelvio
+  { src: "/photos/gallery/dos-07.jpg", alt: "Alfa Romeo Stelvio — vue arrière, sélection NatioPark" },
+  { src: "/photos/gallery/avant-05.jpg", alt: "Alfa Romeo Stelvio — trois-quarts avant, sélection NatioPark" },
+  // Porsche 911 Turbo S chalk/gris
+  { src: "/photos/gallery/dos-08.jpg", alt: "Porsche 911 Turbo S — vue arrière, sélection NatioPark" },
+  { src: "/photos/gallery/avant-06.jpg", alt: "Porsche 911 Turbo S — trois-quarts avant, sélection NatioPark" },
 ];

@@ -35,11 +35,8 @@ export function VehicleGallery() {
   return (
     <>
       {/* Layout A — Grille en paires: rear | front, 2 cols from sm */}
-      <div className="mx-auto grid max-w-7xl gap-3 sm:grid-cols-2">
-        {vehicles.map((v, i) => {
-          const isRear = i % 2 === 0;
-          const pairLabel = isRear ? "Vue arrière" : "3/4 avant";
-          return (
+      <div className="mx-auto grid max-w-4xl gap-2 sm:grid-cols-2">
+        {vehicles.map((v, i) => (
             <Reveal key={v.src} delay={(i % 2) * 0.06}>
               <button
                 type="button"
@@ -52,19 +49,15 @@ export function VehicleGallery() {
                   alt={v.alt}
                   fill
                   className="object-cover transition duration-700 group-hover:scale-105"
-                  sizes="(max-width: 640px) 100vw, 50vw"
+                  sizes="(max-width: 640px) 100vw, 40vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent opacity-70 transition group-hover:opacity-90" />
-                <span className="absolute bottom-4 left-4 text-[0.65rem] tracking-[0.2em] text-platinum/70 uppercase">
-                  {pairLabel}
-                </span>
-                <span className="absolute bottom-4 right-4 text-[0.65rem] tracking-[0.2em] text-platinum/80 uppercase opacity-0 transition group-hover:opacity-100">
+                <span className="absolute bottom-3 right-3 text-[0.65rem] tracking-[0.2em] text-platinum/80 uppercase opacity-0 transition group-hover:opacity-100">
                   Voir
                 </span>
               </button>
             </Reveal>
-          );
-        })}
+        ))}
       </div>
 
       <AnimatePresence>
