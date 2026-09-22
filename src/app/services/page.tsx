@@ -24,7 +24,7 @@ export default function ServicesPage() {
         objectPosition="center 40%"
         className="section-pad flex min-h-[100svh] flex-col justify-center pt-24 pb-24 md:pt-28 md:pb-32"
       >
-        <div className="mx-auto w-full max-w-7xl -translate-y-10 md:-translate-y-14">
+        <div className="mx-auto w-full max-w-7xl -translate-y-20 md:-translate-y-28">
           <Reveal>
             <p className="eyebrow mb-4">Services</p>
             <h1 className="display max-w-3xl text-[clamp(1.75rem,3.4vw,2.75rem)] text-platinum">
