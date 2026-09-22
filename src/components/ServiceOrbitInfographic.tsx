@@ -182,12 +182,13 @@ export function ServiceOrbitInfographic() {
       {/* Full-bleed photo background */}
       <div className="absolute inset-0">
         <Image
-          src="/photos/orbit-porsche-911-turbo.jpg"
-          alt="Porsche 911 Turbo — NatioPark Automobiles"
+          src="/photos/bg-saab-900-turbo-coast.jpg"
+          alt="Saab 900 Turbo S cabriolet — NatioPark Automobiles"
           fill
           quality={85}
           className="object-cover object-center"
           sizes="100vw"
+          priority
         />
       </div>
       {/* Dark overlays — hero-scrim intensity for readable text */}
@@ -204,8 +205,12 @@ export function ServiceOrbitInfographic() {
       <div className="relative z-10 mx-auto max-w-7xl">
         <Reveal>
           <p className="eyebrow mb-4">Un interlocuteur unique</p>
-          <h2 className="display max-w-3xl text-4xl text-platinum md:text-5xl">
-            Un accompagnement sur mesure à 360°
+          <h2
+            className="display whitespace-nowrap text-platinum"
+            style={{ fontSize: "clamp(1.05rem, 3.6vw, 3rem)" }}
+          >
+            Un accompagnement sur mesure à{" "}
+            <span style={{ color: "#c9a227" }}>360°</span>
           </h2>
           <p className="mt-5 max-w-2xl text-sm leading-relaxed text-silver/85 md:text-base">
             Chaque projet bénéficie d&apos;un accompagnement sur mesure, avec
