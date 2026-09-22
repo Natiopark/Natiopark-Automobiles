@@ -183,12 +183,11 @@ export function ServiceOrbitInfographic() {
       <div className="absolute inset-0">
         <Image
           src="/photos/orbit-porsche-911-turbo.jpg"
-          alt=""
+          alt="Porsche 911 Turbo — NatioPark Automobiles"
           fill
           quality={85}
           className="object-cover object-center"
           sizes="100vw"
-          aria-hidden
         />
       </div>
       {/* Dark overlays — hero-scrim intensity for readable text */}

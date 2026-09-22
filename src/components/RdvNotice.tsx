@@ -17,7 +17,7 @@ export function RdvNotice() {
             cadre confidentiel et sécurisé.
           </p>
           <div className="mt-8">
-            <MagneticButton href="/contact">Demander un rendez-vous</MagneticButton>
+            <MagneticButton href="/contact">Nous contacter</MagneticButton>
           </div>
         </div>
       </Reveal>

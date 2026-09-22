@@ -7,7 +7,9 @@ export const site = {
   ],
   reception:
     "Réception uniquement sur rendez-vous — sécurité, confidentialité et qualité de service.",
-  url: "https://natiopark.fr",
+  url: "https://natiopark-automobiles.fr",
+  // Paste GA4 Measurement ID (G-XXXXXXXX) when ready — empty = analytics disabled
+  gaMeasurementId: "",
   centers: [
     {
       id: "marseille",

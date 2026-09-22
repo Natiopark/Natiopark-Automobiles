@@ -3,6 +3,8 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { GrainOverlay } from "@/components/GrainOverlay";
+import { CookieBanner } from "@/components/CookieBanner";
+import { Analytics } from "@/components/Analytics";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -22,6 +24,10 @@ export const metadata: Metadata = {
     "rachat véhicule",
     "vente auto prestige",
   ],
+  icons: {
+    icon: [{ url: "/icon.png", type: "image/png" }],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   openGraph: {
     type: "website",
     locale: "fr_FR",
@@ -31,10 +37,10 @@ export const metadata: Metadata = {
       "Accompagnateur de projets automobiles. Sélection exigeante, rachat et conciergerie 360° en Provence.",
     images: [
       {
-        url: "/photos/hero-porsche-spyder-rs.jpg",
-        width: 1920,
-        height: 1080,
-        alt: "NatioPark Automobiles — hero",
+        url: "/og-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "NatioPark Automobiles",
       },
     ],
   },
@@ -43,7 +49,7 @@ export const metadata: Metadata = {
     title: `${site.name} — ${site.tagline}`,
     description:
       "Vente d'autos singulières, rachat et conciergerie 360° à Marseille et Aix-en-Provence.",
-    images: ["/photos/hero-porsche-spyder-rs.jpg"],
+    images: ["/og-default.jpg"],
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "/" },
@@ -61,6 +67,8 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <CookieBanner />
+        <Analytics />
       </body>
     </html>
   );

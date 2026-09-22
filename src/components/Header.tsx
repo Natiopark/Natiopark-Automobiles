@@ -23,6 +23,13 @@ export function Header() {
     setOpen(false);
   }, [pathname]);
 
+  const norm = (path: string) => {
+    if (!path) return "/";
+    const t = path.replace(/\/$/, "");
+    return t === "" ? "/" : t;
+  };
+  const current = norm(pathname || "/");
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-40 transition-all duration-500 ${
@@ -53,7 +60,7 @@ export function Header() {
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="Navigation principale">
           {site.nav.map((item) => {
-            const active = pathname === item.href;
+            const active = current === norm(item.href);
             return (
               <Link
                 key={item.href}
@@ -107,7 +114,7 @@ export function Header() {
                   key={item.href}
                   href={item.href}
                   className={`py-3 text-sm tracking-[0.18em] uppercase ${
-                    pathname === item.href ? "text-platinum" : "text-muted"
+                    current === norm(item.href) ? "text-platinum" : "text-muted"
                   }`}
                 >
                   {item.label}

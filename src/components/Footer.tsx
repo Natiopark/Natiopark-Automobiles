@@ -11,7 +11,7 @@ export function Footer() {
           <div className="mb-5 flex items-center gap-3">
             <Image
               src="/brand/natiopark_logo_blanc_transparent-AVL769rD7WsrM2Gq.png"
-              alt=""
+              alt="Logo NatioPark Automobiles"
               width={40}
               height={40}
               className="h-10 w-10"
@@ -75,6 +75,12 @@ export function Footer() {
               {n.label}
             </Link>
           ))}
+          <Link href="/rgpd" className="hover:text-platinum transition">
+            Mentions / RGPD
+          </Link>
+          <Link href="/cgu" className="hover:text-platinum transition">
+            CGU
+          </Link>
         </nav>
       </div>
     </footer>

@@ -40,7 +40,7 @@ export function FicheCta({ marque, modele, version }: Props) {
               </p>
             </div>
             <div className="relative mt-8 flex flex-col gap-3 md:mt-0 md:items-end">
-              <MagneticButton href="/contact">Prendre rendez-vous</MagneticButton>
+              <MagneticButton href="/contact">Nous contacter</MagneticButton>
               <MagneticButton href="/vehicules" variant="ghost">
                 Voir la sélection
               </MagneticButton>

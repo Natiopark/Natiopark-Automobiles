@@ -1,10 +1,12 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { site } from "@/data/site";
 
-type Errors = Partial<Record<"nom" | "email" | "telephone" | "sujet" | "message", string>>;
+type Errors = Partial<Record<"nom" | "email" | "telephone" | "sujet" | "message" | "spam", string>>;
+
+// Static site: contact uses mailto only — no backend API keys are embedded in the front-end.
 
 function validate(form: FormData): Errors {
   const errors: Errors = {};
@@ -13,6 +15,12 @@ function validate(form: FormData): Errors {
   const telephone = String(form.get("telephone") || "").trim();
   const sujet = String(form.get("sujet") || "").trim();
   const message = String(form.get("message") || "").trim();
+  const honeypot = String(form.get("website") || "").trim();
+
+  if (honeypot) {
+    errors.spam = "Envoi refusé.";
+    return errors;
+  }
 
   if (nom.length < 2) errors.nom = "Veuillez indiquer votre nom.";
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.email = "Adresse e-mail invalide.";
@@ -26,11 +34,19 @@ export function ContactForm() {
   const [errors, setErrors] = useState<Errors>({});
   const [success, setSuccess] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const startedAt = useRef(Date.now());
 
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = new FormData(e.currentTarget);
+    const formEl = e.currentTarget;
+    const form = new FormData(formEl);
     const errs = validate(form);
+
+    // Soft time-check: reject instant bot fills (< 2s)
+    if (Date.now() - startedAt.current < 2000) {
+      errs.spam = "Veuillez patienter une seconde avant d'envoyer.";
+    }
+
     setErrors(errs);
     if (Object.keys(errs).length) return;
 
@@ -54,7 +70,6 @@ export function ContactForm() {
       `[NatioPark] ${sujet}`
     )}&body=${encodeURIComponent(body)}`;
 
-    // Simulate success UI then open mailto fallback
     window.setTimeout(() => {
       setSubmitting(false);
       setSuccess(true);
@@ -84,7 +99,10 @@ export function ContactForm() {
             <button
               type="button"
               className="btn-ghost mt-8"
-              onClick={() => setSuccess(false)}
+              onClick={() => {
+                setSuccess(false);
+                startedAt.current = Date.now();
+              }}
             >
               Envoyer un autre message
             </button>
@@ -94,12 +112,34 @@ export function ContactForm() {
             key="form"
             onSubmit={onSubmit}
             noValidate
-            className="grid gap-5"
+            className="relative grid gap-5"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
+            {/* Honeypot anti-spam — leave empty */}
+            <div
+              aria-hidden="true"
+              className="absolute -left-[9999px] h-0 w-0 overflow-hidden opacity-0"
+            >
+              <label htmlFor="website">Site web</label>
+              <input
+                id="website"
+                name="website"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </div>
+
             <div className="grid gap-5 sm:grid-cols-2">
-              <Field label="Nom" name="nom" error={errors.nom} required autoComplete="name" />
+              <Field
+                label="Nom"
+                name="nom"
+                error={errors.nom}
+                required
+                autoComplete="name"
+                minLength={2}
+              />
               <Field
                 label="E-mail"
                 name="email"
@@ -117,11 +157,21 @@ export function ContactForm() {
                 error={errors.telephone}
                 required
                 autoComplete="tel"
+                minLength={8}
               />
-              <Field label="Sujet" name="sujet" error={errors.sujet} required />
+              <Field
+                label="Sujet"
+                name="sujet"
+                error={errors.sujet}
+                required
+                minLength={2}
+              />
             </div>
             <div>
-              <label htmlFor="message" className="mb-2 block text-xs tracking-[0.16em] text-muted uppercase">
+              <label
+                htmlFor="message"
+                className="mb-2 block text-xs tracking-[0.16em] text-muted uppercase"
+              >
                 Message
               </label>
               <textarea
@@ -129,6 +179,7 @@ export function ContactForm() {
                 name="message"
                 rows={6}
                 required
+                minLength={10}
                 className="w-full resize-y rounded-sm border border-white/10 bg-black/30 px-4 py-3 text-sm text-platinum placeholder:text-muted/50"
                 placeholder="Décrivez votre projet ou votre besoin…"
                 aria-invalid={!!errors.message}
@@ -140,9 +191,15 @@ export function ContactForm() {
                 </p>
               )}
             </div>
+            {errors.spam && (
+              <p className="text-xs text-red-300" role="alert">
+                {errors.spam}
+              </p>
+            )}
             <p className="text-xs text-muted">
               Réception uniquement sur rendez-vous. En soumettant, votre messagerie
-              s&apos;ouvrira (mailto) pour finaliser l&apos;envoi.
+              s&apos;ouvrira (mailto) pour finaliser l&apos;envoi. Aucune clé API
+              n&apos;est embarquée dans le front-end.
             </p>
             <button type="submit" className="btn-primary w-full sm:w-auto" disabled={submitting}>
               {submitting ? "Préparation…" : "Envoyer le message"}
@@ -161,6 +218,7 @@ function Field({
   error,
   required,
   autoComplete,
+  minLength,
 }: {
   label: string;
   name: string;
@@ -168,6 +226,7 @@ function Field({
   error?: string;
   required?: boolean;
   autoComplete?: string;
+  minLength?: number;
 }) {
   return (
     <div>
@@ -179,6 +238,7 @@ function Field({
         name={name}
         type={type}
         required={required}
+        minLength={minLength}
         autoComplete={autoComplete}
         className="w-full rounded-sm border border-white/10 bg-black/30 px-4 py-3 text-sm text-platinum placeholder:text-muted/50"
         aria-invalid={!!error}

@@ -39,7 +39,7 @@ export default function VehiculesPage() {
                 votre projet automobile sur rendez-vous.
               </p>
             </div>
-            <MagneticButton href="/contact">Lancer mon projet</MagneticButton>
+            <MagneticButton href="/contact">Nous contacter</MagneticButton>
           </div>
         </Reveal>
       </section>
