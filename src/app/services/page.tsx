@@ -22,12 +22,12 @@ export default function ServicesPage() {
         priority
         light
         objectPosition="center 40%"
-        className="section-pad flex min-h-[100svh] flex-col justify-center pt-28 pb-16 md:pt-32 md:pb-20"
+        className="section-pad flex min-h-[100svh] flex-col justify-center pt-24 pb-24 md:pt-28 md:pb-32"
       >
-        <div className="mx-auto w-full max-w-7xl">
+        <div className="mx-auto w-full max-w-7xl -translate-y-10 md:-translate-y-14">
           <Reveal>
             <p className="eyebrow mb-4">Services</p>
-            <h1 className="display max-w-4xl text-[clamp(2.5rem,6vw,5rem)] text-platinum">
+            <h1 className="display max-w-3xl text-[clamp(1.75rem,3.4vw,2.75rem)] text-platinum">
               Un accompagnement transversal pour tous vos projets automobiles
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-silver/90">
