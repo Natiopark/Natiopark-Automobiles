@@ -177,6 +177,18 @@ export const vehicles = [
   { src: "/photos/gallery/dos-07.jpg", alt: "Alfa Romeo Stelvio — vue arrière, sélection NatioPark" },
   { src: "/photos/gallery/avant-05.jpg", alt: "Alfa Romeo Stelvio — trois-quarts avant, sélection NatioPark" },
   // Porsche 911 Turbo S chalk/gris
-  { src: "/photos/gallery/dos-08.jpg", alt: "Porsche 911 Turbo S — vue arrière, sélection NatioPark" },
-  { src: "/photos/gallery/avant-06.jpg", alt: "Porsche 911 Turbo S — trois-quarts avant, sélection NatioPark" },
+  { src: "/photos/gallery/dos-991-turbo-s.jpg", alt: "Porsche 911 Turbo S — vue arrière, sélection NatioPark" },
+  { src: "/photos/gallery/avant-991-turbo-s.jpg", alt: "Porsche 911 Turbo S — trois-quarts avant, sélection NatioPark" },
+  // Renault 21 Turbo
+  { src: "/photos/gallery/dos-r21.jpg", alt: "Renault 21 Turbo — vue arrière, sélection NatioPark" },
+  { src: "/photos/gallery/avant-r21.jpg", alt: "Renault 21 Turbo — trois-quarts avant, sélection NatioPark" },
+  // Aston Martin DB9
+  { src: "/photos/gallery/dos-db9.jpg", alt: "Aston Martin DB9 — vue arrière, sélection NatioPark" },
+  { src: "/photos/gallery/avant-db9.jpg", alt: "Aston Martin DB9 — trois-quarts avant, sélection NatioPark" },
+  // BMW X3 M Competition
+  { src: "/photos/gallery/dos-x3m.jpg", alt: "BMW X3 M Competition — vue arrière, sélection NatioPark" },
+  { src: "/photos/gallery/avant-x3m.jpg", alt: "BMW X3 M Competition — trois-quarts avant, sélection NatioPark" },
+  // Porsche Boxster argent / toit et intérieur rouge
+  { src: "/photos/gallery/dos-boxster-rouge.jpg", alt: "Porsche Boxster — vue arrière toit rouge, sélection NatioPark" },
+  { src: "/photos/gallery/avant-boxster-rouge.jpg", alt: "Porsche Boxster — trois-quarts avant intérieur rouge, sélection NatioPark" },
 ];

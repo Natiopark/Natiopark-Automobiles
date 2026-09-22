@@ -9,6 +9,9 @@ type Props = {
   delay?: number;
   y?: number;
   once?: boolean;
+  /** Viewport margin for whileInView (gallery-friendly defaults can override). */
+  margin?: string;
+  amount?: number | "some" | "all";
 };
 
 export function Reveal({
@@ -17,6 +20,8 @@ export function Reveal({
   delay = 0,
   y = 36,
   once = true,
+  margin = "-80px",
+  amount,
 }: Props) {
   const reduce = useReducedMotion();
   if (reduce) {
@@ -27,7 +32,7 @@ export function Reveal({
       className={className}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once, margin: "-80px" }}
+      viewport={{ once, margin, ...(amount !== undefined ? { amount } : {}) }}
       transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}

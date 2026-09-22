@@ -37,7 +37,7 @@ export function VehicleGallery() {
       {/* Layout A — Grille en paires: rear | front, 2 cols from sm */}
       <div className="mx-auto grid max-w-4xl gap-2 sm:grid-cols-2">
         {vehicles.map((v, i) => (
-            <Reveal key={v.src} delay={(i % 2) * 0.06}>
+            <Reveal key={v.src} delay={(i % 2) * 0.06} margin="0px" amount={0.15}>
               <button
                 type="button"
                 onClick={() => setActive(i)}
