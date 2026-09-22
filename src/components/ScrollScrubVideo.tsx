@@ -1,103 +1,133 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import {
-  useMotionValueEvent,
-  useReducedMotion,
-  useScroll,
-} from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 
 /**
- * Tall scroll track + sticky full-bleed video scrubbed by scroll progress.
- * Never autoplays/loops — only seeks via currentTime. Safari unlock on metadata.
- * Falls back to a mid-frame still when prefers-reduced-motion.
+ * Sticky full-bleed video scrubbed by scroll. Uses canvas draw after seek
+ * (more reliable than bare currentTime on Safari) + getBoundingClientRect progress.
  */
 export function ScrollScrubVideo({
   src = "/videos/home-showreel.mp4",
+  poster = "/videos/home-showreel-poster.jpg",
 }: {
   src?: string;
+  poster?: string;
 }) {
   const containerRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const progressRef = useRef(0);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const readyRef = useRef(false);
+  const seekingRef = useRef(false);
+  const targetRef = useRef(0);
   const reduce = useReducedMotion();
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-
-  const scrubTo = (progress: number) => {
+  useEffect(() => {
+    const container = containerRef.current;
     const video = videoRef.current;
-    if (!video || !Number.isFinite(video.duration) || video.duration <= 0) return;
-    const t = Math.min(Math.max(progress, 0), 1) * video.duration;
-    if (Math.abs(video.currentTime - t) > 0.01) {
+    const canvas = canvasRef.current;
+    if (!container || !video || !canvas) return;
+
+    const ctx = canvas.getContext("2d", { alpha: false });
+    if (!ctx) return;
+
+    const resize = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const w = container.clientWidth;
+      const h = window.innerHeight;
+      canvas.width = Math.max(1, Math.floor(w * dpr));
+      canvas.height = Math.max(1, Math.floor(h * dpr));
+      canvas.style.width = `${w}px`;
+      canvas.style.height = `${h}px`;
+      draw();
+    };
+
+    const draw = () => {
+      if (!ctx || video.readyState < 2) return;
+      const cw = canvas.width;
+      const ch = canvas.height;
+      const vw = video.videoWidth || 1;
+      const vh = video.videoHeight || 1;
+      const scale = Math.max(cw / vw, ch / vh);
+      const dw = vw * scale;
+      const dh = vh * scale;
+      const dx = (cw - dw) / 2;
+      const dy = (ch - dh) / 2;
+      ctx.fillStyle = "#07080a";
+      ctx.fillRect(0, 0, cw, ch);
+      ctx.drawImage(video, dx, dy, dw, dh);
+    };
+
+    const progressFromScroll = () => {
+      const rect = container.getBoundingClientRect();
+      const total = container.offsetHeight - window.innerHeight;
+      if (total <= 0) return 0;
+      const scrolled = Math.min(Math.max(-rect.top, 0), total);
+      return scrolled / total;
+    };
+
+    const applySeek = () => {
+      if (reduce || !readyRef.current || seekingRef.current) return;
+      if (!Number.isFinite(video.duration) || video.duration <= 0) return;
+      const t = targetRef.current * Math.max(video.duration - 0.05, 0);
+      if (Math.abs(video.currentTime - t) < 0.04) {
+        draw();
+        return;
+      }
+      seekingRef.current = true;
+      const onSeeked = () => {
+        seekingRef.current = false;
+        draw();
+        // catch up if scroll moved during seek
+        const again = targetRef.current * Math.max(video.duration - 0.05, 0);
+        if (Math.abs(video.currentTime - again) > 0.05) applySeek();
+      };
+      video.addEventListener("seeked", onSeeked, { once: true });
       try {
         video.currentTime = t;
       } catch {
-        /* seek may fail before enough data */
+        seekingRef.current = false;
       }
-    }
-  };
+    };
 
-  useMotionValueEvent(scrollYProgress, "change", (progress) => {
-    progressRef.current = progress;
-    if (reduce) return;
-    scrubTo(progress);
-  });
+    const onScroll = () => {
+      targetRef.current = progressFromScroll();
+      applySeek();
+    };
 
-  // Safari unlock on loadedmetadata + rAF backup while section in view
-  useEffect(() => {
-    const video = videoRef.current;
-    const container = containerRef.current;
-    if (!video || !container) return;
-
-    const unlock = () => {
+    const unlock = async () => {
       video.muted = true;
-      void video
-        .play()
-        .then(() => {
-          video.pause();
-        })
-        .catch(() => {});
+      video.playsInline = true;
+      try {
+        await video.play();
+        video.pause();
+      } catch {
+        /* ignore */
+      }
+      readyRef.current = true;
       if (reduce) {
-        if (Number.isFinite(video.duration) && video.duration > 0) {
-          video.currentTime = video.duration * 0.45;
-        }
+        video.currentTime = video.duration * 0.45;
+        video.addEventListener("seeked", () => draw(), { once: true });
       } else {
-        video.currentTime = 0;
-        scrubTo(progressRef.current);
+        targetRef.current = progressFromScroll();
+        applySeek();
       }
     };
 
-    if (video.readyState >= 1) unlock();
-    else video.addEventListener("loadedmetadata", unlock, { once: true });
+    if (video.readyState >= 1) void unlock();
+    else video.addEventListener("loadedmetadata", () => void unlock(), { once: true });
 
-    if (reduce) {
-      return () => video.removeEventListener("loadedmetadata", unlock);
-    }
-
-    let raf = 0;
-    let alive = true;
-    const tick = () => {
-      if (!alive) return;
-      const rect = container.getBoundingClientRect();
-      const inView = rect.bottom > 0 && rect.top < window.innerHeight;
-      if (inView) {
-        const p = scrollYProgress.get();
-        progressRef.current = p;
-        scrubTo(p);
-      }
-      raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
+    video.addEventListener("loadeddata", draw);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", resize);
+    resize();
 
     return () => {
-      alive = false;
-      video.removeEventListener("loadedmetadata", unlock);
-      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", resize);
+      video.removeEventListener("loadeddata", draw);
     };
-  }, [reduce, scrollYProgress]);
+  }, [reduce, src]);
 
   return (
     <section
@@ -113,10 +143,16 @@ export function ScrollScrubVideo({
         <video
           ref={videoRef}
           src={src}
+          poster={poster}
           muted
           playsInline
           preload="auto"
-          className="absolute inset-0 h-full w-full object-cover object-center"
+          className="pointer-events-none absolute opacity-0"
+          aria-hidden
+        />
+        <canvas
+          ref={canvasRef}
+          className="absolute inset-0 h-full w-full"
           aria-hidden
         />
 
