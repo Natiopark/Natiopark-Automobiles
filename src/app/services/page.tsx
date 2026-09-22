@@ -20,14 +20,15 @@ export default function ServicesPage() {
         src="/photos/bg-911-turbo-rear.jpg"
         alt="Porsche 911 Turbo S — vue arrière trois-quarts"
         priority
+        light
         objectPosition="center 40%"
-        className="section-pad pt-32 pb-16 md:pt-40 md:pb-24"
+        className="section-pad flex min-h-[100svh] flex-col justify-center pt-28 pb-16 md:pt-32 md:pb-20"
       >
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto w-full max-w-7xl">
           <Reveal>
             <p className="eyebrow mb-4">Services</p>
             <h1 className="display max-w-4xl text-[clamp(2.5rem,6vw,5rem)] text-platinum">
-              Une offre complète pour vos projets automobiles
+              Un accompagnement transversal pour tous vos projets automobiles
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-silver/90">
               De l&apos;acquisition à l&apos;entretien, chaque mission est menée

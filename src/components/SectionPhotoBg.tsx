@@ -12,6 +12,8 @@ type SectionPhotoBgProps = {
   objectPosition?: string;
   /** Extra dark layer for form/glass-heavy sections */
   heavy?: boolean;
+  /** Lighter overlays closer to Accueil hero */
+  light?: boolean;
 };
 
 export function SectionPhotoBg({
@@ -22,6 +24,7 @@ export function SectionPhotoBg({
   priority = false,
   objectPosition = "center",
   heavy = false,
+  light = false,
 }: SectionPhotoBgProps) {
   return (
     <section className={`relative overflow-hidden ${className}`}>
@@ -37,17 +40,30 @@ export function SectionPhotoBg({
           sizes="100vw"
         />
       </div>
-      {/* Dark luxury stack — same intensity as orbit / hero */}
       <div className="hero-scrim pointer-events-none absolute inset-0" />
       <div className="hero-vignette pointer-events-none absolute inset-0" />
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background: heavy
-            ? "linear-gradient(180deg, rgba(7,8,10,0.78) 0%, rgba(7,8,10,0.62) 45%, rgba(7,8,10,0.85) 100%)"
-            : "linear-gradient(180deg, rgba(7,8,10,0.72) 0%, rgba(7,8,10,0.55) 45%, rgba(7,8,10,0.78) 100%)",
-        }}
-      />
+      {!light && (
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background: heavy
+              ? "linear-gradient(180deg, rgba(7,8,10,0.78) 0%, rgba(7,8,10,0.62) 45%, rgba(7,8,10,0.85) 100%)"
+              : "linear-gradient(180deg, rgba(7,8,10,0.72) 0%, rgba(7,8,10,0.55) 45%, rgba(7,8,10,0.78) 100%)",
+          }}
+        />
+      )}
+      {light && (
+        <>
+          <div className="hero-aurora pointer-events-none absolute inset-0" />
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(7,8,10,0.35) 0%, rgba(7,8,10,0.18) 42%, rgba(7,8,10,0.45) 100%)",
+            }}
+          />
+        </>
+      )}
       <div className="relative z-10">{children}</div>
     </section>
   );
