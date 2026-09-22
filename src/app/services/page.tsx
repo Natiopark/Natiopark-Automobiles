@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Reveal } from "@/components/Reveal";
 import { ServiceIcon } from "@/components/ServiceIcons";
-import { Testimonials } from "@/components/Testimonials";
+import { GoogleReviews } from "@/components/GoogleReviews";
 import { MagneticButton } from "@/components/MagneticButton";
 import { StatsStrip } from "@/components/StatsStrip";
 import { SectionPhotoBg } from "@/components/SectionPhotoBg";
@@ -64,7 +64,7 @@ export default function ServicesPage() {
       </SectionPhotoBg>
 
       <StatsStrip />
-      <Testimonials page="services" />
+      <GoogleReviews />
 
       <SectionPhotoBg
         src="/photos/bg-boxster-coast.jpg"
